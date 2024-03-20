@@ -11,17 +11,17 @@ albedo_color = Color(0, 0, 1, 1)
 
 [node name="axis" type="Node3D"]
 
-[node name="x" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2.08165e-12, 2.08165e-12)
+[node name="X" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05, 2.08165e-12, 2.08165e-12)
 material_override = SubResource("StandardMaterial3D_p6ln2")
-size = Vector3(1, 0.1, 0.1)
+size = Vector3(0.1, 0.01, 0.01)
 
 [node name="y" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.5, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.05, 2.08165e-12)
 material_override = SubResource("StandardMaterial3D_5es2a")
-size = Vector3(0.1, 1, 0.1)
+size = Vector3(0.01, 0.1, 0.01)
 
 [node name="z" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 0.05)
 material_override = SubResource("StandardMaterial3D_6a702")
-size = Vector3(0.1, 0.1, 1)
+size = Vector3(0.01, 0.01, 0.1)

@@ -1,119 +1,7 @@
 extends Node3D
 
 
-var axis = load("res://libs/gd_mocopi/axis.tscn")
-
-var ary_bone_axis: Array[Node3D] = []
-var ary_axis_vrm: Array[Node3D] = []
-var ary_quat: Array[Quaternion] = []
-var ary_vct3: Array[Vector3] = []
-var dict_adjust: Dictionary
-
-var mat: StandardMaterial3D
-
-
-func preview_mocopi(ary_bndt: Array[GDMocopi.MocopiBndt], ary_btdt: Array[GDMocopi.MocopiBtdt]):
-
-    var im: Mesh = $root_mocopi.mesh
-
-    im.clear_surfaces()
-    im.surface_begin(Mesh.PRIMITIVE_LINES, mat)
-
-    for i in range(GDMocopi.MOCOPI_BONE_COUNT):
-        var calc_quat: Quaternion
-        var calc_vct3: Vector3
-
-        var p_idx: int = ary_bndt[i].pbid
-
-        if p_idx != -1:
-            calc_quat = ary_quat[p_idx]
-            calc_vct3 = ary_vct3[p_idx]
-            pass
-
-        calc_vct3 += (calc_quat * ary_btdt[i].vct3)
-
-        ary_quat[i] = calc_quat * ary_btdt[i].quat
-        ary_vct3[i] = calc_vct3
-
-        var cube = ary_bone_axis[i]
-        cube.quaternion = ary_quat[i]
-        cube.position = ary_vct3[i]
-        cube.scale = Vector3(0.075, 0.075, 0.075)
-        cube.visible = true
-
-        if p_idx != -1:
-            var vctTo = ary_bone_axis[i].position
-            var vctFr = ary_bone_axis[p_idx].position
-            im.surface_add_vertex(vctTo)
-            im.surface_add_vertex(vctFr)
-
-    im.surface_end()
-
-
-func preview_vrm():
-
-    var skel: Skeleton3D = $Node3D/Reference/GeneralSkeleton
-    
-    if skel == null: return
-
-    var im: Mesh = $root_vrm.mesh
-
-    im.clear_surfaces()
-    im.surface_begin(Mesh.PRIMITIVE_LINES, mat)
-
-    var n: int = 0
-    for bone_name in $GDMocopi.dict_remap.keys():
-        var bone_index: int = skel.find_bone(bone_name)
-        if bone_index == -1: continue
-
-        var tf: Transform3D = skel.get_bone_global_pose(bone_index)
-        var quat: Quaternion = Quaternion(tf.basis)
-
-        ary_axis_vrm[n].basis = tf.basis
-        ary_axis_vrm[n].position = tf.origin
-        ary_axis_vrm[n].scale = Vector3(0.075, 0.075, 0.075)
-        ary_axis_vrm[n].visible = true
-
-        var p_idx: int = skel.get_bone_parent(bone_index)
-        if n != 0:
-            var vctTo = skel.get_bone_global_pose(bone_index).origin
-            var vctFr = skel.get_bone_global_pose(p_idx).origin
-            im.surface_add_vertex(vctTo)
-            im.surface_add_vertex(vctFr)
-
-        n += 1
-
-    im.surface_end()
-
-
 func _ready():
-
-    # for mocopi
-    ary_bone_axis.clear()
-    for i in range(GDMocopi.MOCOPI_BONE_COUNT):
-        var o = axis.instantiate()
-        o.visible = false
-        $root_mocopi.add_child(o)
-        
-        ary_bone_axis.push_back(o)
-        ary_quat.push_back(Quaternion())
-        ary_vct3.push_back(Vector3())
-
-    $root_mocopi.mesh = ImmediateMesh.new()
-
-    # for VRM
-    ary_axis_vrm.clear()
-    for i in range(GDMocopi.DEFAULT_MOCOPI_REMAP.size()):
-        var o = axis.instantiate()
-        o.visible = false
-        $root_vrm.add_child(o)
-
-        ary_axis_vrm.push_back(o)
-
-    $root_vrm.mesh = ImmediateMesh.new()
-
-    mat = StandardMaterial3D.new()
-    mat.albedo_color = Color.GREEN
 
     $ui/list_bone.clear()
     for bone_name in GDMocopi.DEFAULT_MOCOPI_REMAP.keys():
@@ -127,9 +15,8 @@ func _process(_delta):
     $ui/lbl_time.text = "%.3f" % [$GDMocopi.time]
 
     if $GDMocopi.valid:
-        preview_mocopi($GDMocopi.ary_bndt, $GDMocopi.ary_btdt)
-        preview_vrm()
-
+        $PreviewAxisMocopi.preview($GDMocopi)
+        $PreviewAxisVRM.preview($GDMocopi)
 
     if Input.is_action_pressed("ui_home"):
         pass

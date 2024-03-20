@@ -12,6 +12,7 @@ config_version=5
 
 config/name="GDMocopi"
 config/description="SONY mocopi for Godot demo & editor"
+config/tags=PackedStringArray("mocopi")
 run/main_scene="res://demo.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"

@@ -1,6 +1,11 @@
 extends Node
 class_name GDMocopi
 
+
+@export var receive_port: int = 12351
+@export_node_path("Skeleton3D") var skel_nodepath: NodePath
+
+
 const MOCOPI_BONE_COUNT: int = 27
 
 const DEFAULT_MOCOPI_PARAM: Dictionary = {
@@ -182,10 +187,6 @@ var btdt_count: int
 # for Skeleton3D
 var dict_param: Dictionary
 var dict_remap: Dictionary
-
-
-@export var receive_port: int = 12351
-@export_node_path("Skeleton3D") var skel_nodepath: NodePath
 
 
 var valid: bool:

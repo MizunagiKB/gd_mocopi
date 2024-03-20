@@ -1,12 +1,14 @@
-[gd_scene load_steps=117 format=3 uid="uid://bp7bd255qy17p"]
+[gd_scene load_steps=119 format=3 uid="uid://bp7bd255qy17p"]
 
 [ext_resource type="Script" path="res://editor.gd" id="1_1dgpq"]
 [ext_resource type="PackedScene" uid="uid://8g12xtokifh2" path="res://res/vrm/RAYNOS-chan_1.0.2.vrm" id="2_q75pv"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider.gd" id="4_ab1hl"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider_group.gd" id="5_xiwll"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_spring_bone.gd" id="6_hsqi0"]
+[ext_resource type="Script" path="res://libs/gd_mocopi/preview_axis_mocopi.gd" id="7_71r47"]
 [ext_resource type="Texture2D" uid="uid://bhwcy5es83p1e" path="res://res/icon/download-solid.svg" id="7_y4oga"]
 [ext_resource type="Texture2D" uid="uid://7yfg0lbyxtps" path="res://res/icon/upload-solid.svg" id="8_86m01"]
+[ext_resource type="Script" path="res://libs/gd_mocopi/preview_axis_vrm.gd" id="8_tld7n"]
 [ext_resource type="Script" path="res://libs/gd_mocopi/gd_mocopi.gd" id="11_lj047"]
 
 [sub_resource type="Resource" id="Resource_i4t7w"]
@@ -1790,12 +1792,13 @@ initial_position = 1
 size = Vector2i(640, 320)
 filters = PackedStringArray("*.json")
 
-[node name="root_mocopi" type="MeshInstance3D" parent="."]
+[node name="PreviewAxisMocopi" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.08165e-12, 2.08165e-12)
+script = ExtResource("7_71r47")
 
-[node name="root_vrm" type="MeshInstance3D" parent="."]
+[node name="PreviewAxisVRM" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.08165e-12, 2.08165e-12)
-skeleton = NodePath("../root_mocopi")
+script = ExtResource("8_tld7n")
 
 [node name="ui" type="Control" parent="."]
 layout_mode = 3

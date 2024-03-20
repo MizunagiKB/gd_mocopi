@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb7ldjtlnlmve"]
+
+[ext_resource type="Script" path="res://libs/gd_mocopi/preview_axis_vrm.gd" id="1_1mrb8"]
+
+[node name="preview_axis_vrm" type="MeshInstance3D"]
+script = ExtResource("1_1mrb8")
