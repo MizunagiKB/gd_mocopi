@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/vrm/vrm_spring_bone.gd" id="6_hsqi0"]
 [ext_resource type="Texture2D" uid="uid://bhwcy5es83p1e" path="res://res/icon/download-solid.svg" id="7_y4oga"]
 [ext_resource type="Texture2D" uid="uid://7yfg0lbyxtps" path="res://res/icon/upload-solid.svg" id="8_86m01"]
-[ext_resource type="Script" path="res://libs/gd_mocopi.gd" id="11_lj047"]
+[ext_resource type="Script" path="res://libs/gd_mocopi/gd_mocopi.gd" id="11_lj047"]
 
 [sub_resource type="Resource" id="Resource_i4t7w"]
 resource_name = "LeftUpperLeg"

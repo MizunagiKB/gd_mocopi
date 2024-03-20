@@ -1,7 +1,7 @@
 [gd_scene load_steps=115 format=3 uid="uid://cud8m00ci4l61"]
 
 [ext_resource type="Script" path="res://demo.gd" id="1_o14ee"]
-[ext_resource type="Script" path="res://libs/gd_mocopi.gd" id="2_a05h3"]
+[ext_resource type="Script" path="res://libs/gd_mocopi/gd_mocopi.gd" id="2_t07mp"]
 [ext_resource type="PackedScene" uid="uid://8g12xtokifh2" path="res://res/vrm/RAYNOS-chan_1.0.2.vrm" id="3_qvp1j"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider.gd" id="4_o242v"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider_group.gd" id="5_u8i33"]
@@ -1736,7 +1736,7 @@ albedo_color = Color(0.12549, 0.12549, 0.12549, 1)
 script = ExtResource("1_o14ee")
 
 [node name="GDMocopi" type="Node" parent="."]
-script = ExtResource("2_a05h3")
+script = ExtResource("2_t07mp")
 skel_nodepath = NodePath("../Node3D/Reference/GeneralSkeleton")
 
 [node name="Node3D" parent="." instance=ExtResource("3_qvp1j")]

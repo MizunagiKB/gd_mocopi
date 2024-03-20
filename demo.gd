@@ -5,5 +5,5 @@ func _ready():
     $GDMocopi.listen()
 
 
-func _process(delta):
+func _process(_delta):
     pass

@@ -1,0 +1,212 @@
+{
+	"Hips": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "XYZ",
+		"on": true
+	},
+	"Spine": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "XYZ",
+		"on": true
+	},
+	"Chest": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "XYZ",
+		"on": true
+	},
+	"Neck": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "XYZ",
+		"on": true
+	},
+	"Head": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "XYZ",
+		"on": true
+	},
+	"LeftShoulder": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "ZXY",
+		"on": true
+	},
+	"LeftUpperArm": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": -1,
+		"inv_z": -1,
+		"order": "ZXY",
+		"on": true
+	},
+	"LeftLowerArm": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": -1,
+		"inv_z": 1,
+		"order": "YXZ",
+		"on": true
+	},
+	"LeftHand": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": -1,
+		"inv_z": -1,
+		"order": "ZXY",
+		"on": true
+	},
+	"RightShoulder": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": 1,
+		"inv_z": -1,
+		"order": "ZXY",
+		"on": true
+	},
+	"RightUpperArm": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": -1,
+		"inv_z": 1,
+		"order": "ZXY",
+		"on": true
+	},
+	"RightLowerArm": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "YXZ",
+		"on": true
+	},
+	"RightHand": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": -1,
+		"inv_z": 1,
+		"order": "ZXY",
+		"on": true
+	},
+	"LeftUpperLeg": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": -1,
+		"inv_z": 1,
+		"order": "XYZ",
+		"on": true
+	},
+	"LeftLowerLeg": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": -1,
+		"inv_z": -1,
+		"order": "XYZ",
+		"on": true
+	},
+	"LeftFoot": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "XZY",
+		"on": true
+	},
+	"LeftToes": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": -1,
+		"order": "XZY",
+		"on": true
+	},
+	"RightUpperLeg": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": -1,
+		"inv_z": 1,
+		"order": "XYZ",
+		"on": true
+	},
+	"RightLowerLeg": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": -1,
+		"inv_z": -1,
+		"order": "XYZ",
+		"on": true
+	},
+	"RightFoot": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": -1,
+		"inv_y": 1,
+		"inv_z": 1,
+		"order": "XZY",
+		"on": true
+	},
+	"RightToes": {
+		"x": 0,
+		"y": 0,
+		"z": 0,
+		"inv_x": 1,
+		"inv_y": 1,
+		"inv_z": -1,
+		"order": "XZY",
+		"on": true
+	}
+}

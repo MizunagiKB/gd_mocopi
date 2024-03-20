@@ -1,7 +1,7 @@
 extends Node3D
 
 
-var axis = load("res://libs/axis.tscn")
+var axis = load("res://libs/gd_mocopi/axis.tscn")
 
 var ary_bone_axis: Array[Node3D] = []
 var ary_axis_vrm: Array[Node3D] = []

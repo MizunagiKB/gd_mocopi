@@ -216,7 +216,7 @@ func json_save(param_pathname: String) -> bool:
 
 func quaternion_calc(btdt: GDMocopi.MocopiBtdt, order: String, inv_x: float, inv_y: float, inv_z: float) -> Quaternion:
     var src_q: Quaternion = btdt.quat
-    var dst_q: Quaternion
+    var dst_q: Quaternion = Quaternion()
 
     dst_q.w = src_q.w
 
@@ -328,24 +328,28 @@ func _decode_head(stream: StreamPeerBuffer) -> bool:
 
 func _parse_s16(stream: StreamPeerBuffer, text: String) -> int:
     var size: int = stream.get_u32()
+    assert(size == 2)
     if stream.get_string(4) != text: return 0
     return stream.get_16()
 
 
 func _parse_u32(stream: StreamPeerBuffer, text: String) -> int:
     var size: int = stream.get_u32()
+    assert(size == 4)
     if stream.get_string(4) != text: return 0
     return stream.get_u32()
 
 
 func _parse_f32(stream: StreamPeerBuffer, text: String) -> float:
     var size: int = stream.get_u32()
+    assert(size == 4)
     if stream.get_string(4) != text: return 0.0
     return stream.get_float()
 
 
 func _parse_f64(stream: StreamPeerBuffer, text: String) -> float:
     var size: int = stream.get_u32()
+    assert(size == 8)
     if stream.get_string(4) != text: return 0.0
     return stream.get_double()
 

@@ -30,38 +30,18 @@ endif::env-github,env-vscode[]
 
 == About
 
+image::docs/res/images/gd_mocopi_fig1.png[]
+
 このソフトウェア（以下GDMocopi）は link:https://www.sony.net/Products/mocopi-dev/jp/[SONY mocopi]の情報を Godot Engineで受信するための**非公式**な GDExtension です。
 
-この GDExtension は Godot Engine 4.2 以上で使用可能です。
-
-
-== ライセンス
-
-ifdef::env-github,env-vscode[]
-* link:./docs/LICENSE{adocsuffix}[]
-endif::env-github,env-vscode[]
-ifndef::env-github,env-vscode[]
-* link:./LICENSE{adocsuffix}[]
-endif::env-github,env-vscode[]
-
-== ビルド方法
-
-ifdef::env-github,env-vscode[]
-* link:./docs/BUILD{adocsuffix}[]
-endif::env-github,env-vscode[]
-ifndef::env-github,env-vscode[]
-* link:./BUILD{adocsuffix}[]
-endif::env-github,env-vscode[]
+この GDExtension は Godot Engine 4.1 以上で使用可能です。
 
 
 == 使用方法
 
-ifdef::env-github,env-vscode[]
-* link:./docs/USAGE{adocsuffix}[]
-endif::env-github,env-vscode[]
-ifndef::env-github,env-vscode[]
-* link:./USAGE{adocsuffix}[]
-endif::env-github,env-vscode[]
+基本的な使用方法は、使用したいシーンに GDMocopi と VRM を追加して、VRM のSkeleton3D を GDMocopi に割り当ててください。
+
+ドキュメントはまだ用意されていないのですが、mocopi の情報を受け取って VRM モデルを動かすだけのサンプルとして demo.tscn を用意してあります。
 
 == 関連情報
 
