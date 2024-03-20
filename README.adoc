@@ -43,8 +43,21 @@ image::docs/res/images/gd_mocopi_fig1.png[]
 
 ドキュメントはまだ用意されていないのですが、mocopi の情報を受け取って VRM モデルを動かすだけのサンプルとして demo.tscn を用意してあります。
 
+
+== ライセンス
+
+VRM addon for Godot Engine::
+VRMファイルの読み込みに、 V-Sekai/godot-vrm アドオンを使用しています。
+https://github.com/V-Sekai/godot-vrm/
+
+RAYNOSちゃん Avatar::
+VRMモデルとして RAYNOS-chan-avatar_v1.0.3.zip を使用しています。 +
+https://www.sony.net/Products/mocopi-dev/jp/downloads/DownloadInfo.html
+
+
 == 関連情報
 
 * link:https://www.sony.net/Products/mocopi-dev/jp/[Mobile Motion Capture "mocopi" Developer Site]
 * link:https://github.com/seagetch/mcp-receiver[mcp-receiver(GitHub)]
+* link:https://github.com/V-Sekai/godot-vrm[VRM addon for Godot Engine]
 * link:https://github.com/MizunagiKB/gd_mocopi[MizunagiKB / gd_mocopi (GitHub)]
