@@ -32,7 +32,7 @@ endif::env-github,env-vscode[]
 
 image::docs/res/images/gd_mocopi_fig1.png[]
 
-このソフトウェア（以下GDMocopi）は link:https://www.sony.net/Products/mocopi-dev/jp/[SONY mocopi]の情報を Godot Engineで受信するための**非公式**な GDExtension です。
+このソフトウェア（以下GDMocopi）は link:https://www.sony.net/Products/mocopi-dev/jp/[SONY mocopi] から送信される情報を Godot Engine で受信するための**非公式**な GDExtension です。
 
 この GDExtension は Godot Engine 4.1 以上で使用可能です。
 
@@ -47,4 +47,4 @@ image::docs/res/images/gd_mocopi_fig1.png[]
 
 * link:https://www.sony.net/Products/mocopi-dev/jp/[Mobile Motion Capture "mocopi" Developer Site]
 * link:https://github.com/seagetch/mcp-receiver[mcp-receiver(GitHub)]
-* link:https://github.com/MizunagiKB/gd_cubism[MizunagiKB / gd_cubism (GitHub)]
+* link:https://github.com/MizunagiKB/gd_mocopi[MizunagiKB / gd_mocopi (GitHub)]
