@@ -1838,13 +1838,39 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -136.0
+offset_left = -168.0
 offset_top = 8.0
 offset_right = -9.0
 offset_bottom = 39.0
 grow_horizontal = 0
 focus_mode = 0
-text = "Listen"
+text = "Listen(*)"
+
+[node name="chk_preview_axis_mocopi" type="CheckButton" parent="ui"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 64.0
+offset_right = -8.0
+offset_bottom = 95.0
+grow_horizontal = 0
+focus_mode = 0
+text = "Bone Mocopi"
+
+[node name="chk_preview_axis_vrm" type="CheckButton" parent="ui"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 96.0
+offset_right = -8.0
+offset_bottom = 127.0
+grow_horizontal = 0
+focus_mode = 0
+text = "Bone VRM"
 
 [node name="lbl_bndt_count" type="Label" parent="ui"]
 layout_mode = 1
@@ -1882,8 +1908,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -136.0
-offset_top = -36.0
+offset_left = -160.0
+offset_top = -38.0
 offset_right = -8.0
 offset_bottom = -12.0
 grow_horizontal = 0
@@ -2003,6 +2029,8 @@ alignment = 2
 [connection signal="pressed" from="ui/btn_load" to="." method="_on_btn_load_pressed"]
 [connection signal="pressed" from="ui/btn_save" to="." method="_on_btn_save_pressed"]
 [connection signal="toggled" from="ui/chk_listen" to="." method="_on_chk_listen_toggled"]
+[connection signal="toggled" from="ui/chk_preview_axis_mocopi" to="." method="_on_chk_preview_axis_mocopi_toggled"]
+[connection signal="toggled" from="ui/chk_preview_axis_vrm" to="." method="_on_chk_preview_axis_vrm_toggled"]
 [connection signal="value_changed" from="ui/x" to="." method="_on_x_value_changed"]
 [connection signal="toggled" from="ui/x/x_check" to="." method="_on_x_check_toggled"]
 [connection signal="value_changed" from="ui/y" to="." method="_on_y_value_changed"]

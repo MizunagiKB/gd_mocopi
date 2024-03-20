@@ -13,10 +13,9 @@ func _process(_delta):
     $ui/lbl_bndt_count.text = str($GDMocopi.bndt_count)
     $ui/lbl_btdt_count.text = str($GDMocopi.btdt_count)
     $ui/lbl_time.text = "%.3f" % [$GDMocopi.time]
-
-    if $GDMocopi.valid:
-        $PreviewAxisMocopi.preview($GDMocopi)
-        $PreviewAxisVRM.preview($GDMocopi)
+    
+    $ui/chk_preview_axis_mocopi.button_pressed = $PreviewAxisMocopi.visible
+    $ui/chk_preview_axis_vrm.button_pressed = $PreviewAxisVRM.visible
 
     if Input.is_action_pressed("ui_home"):
         pass
@@ -26,6 +25,10 @@ func _process(_delta):
     elif Input.is_action_pressed("ui_right"):
         $Node3D.rotate_y(-0.05)
         $root_mocopi.rotate_y(-0.05)
+
+    if $GDMocopi.valid:
+        $PreviewAxisMocopi.preview($GDMocopi)
+        $PreviewAxisVRM.preview($GDMocopi)
 
 
 func _on_btn_load_pressed():
@@ -138,6 +141,15 @@ func _on_chk_on_toggled(toggled_on):
 
 func _on_chk_listen_toggled(toggled_on):
     if toggled_on == true:
+        $ui/chk_listen.text = "Listen(%d)" % [$GDMocopi.receive_port]
         $GDMocopi.listen()
     else:
         $GDMocopi.stop()
+
+
+func _on_chk_preview_axis_mocopi_toggled(button_pressed):
+    $PreviewAxisMocopi.visible = button_pressed
+
+
+func _on_chk_preview_axis_vrm_toggled(button_pressed):
+    $PreviewAxisVRM.visible = button_pressed
