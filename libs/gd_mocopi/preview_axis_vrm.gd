@@ -25,7 +25,7 @@ func preview(o_mocopi: GDMocopi):
     im.surface_begin(Mesh.PRIMITIVE_LINES, mat)
 
     var n: int = 0
-    for bone_name in o_mocopi.dict_remap.keys():
+    for bone_name in o_mocopi.dict_param.keys():
         var bone_index: int = skel.find_bone(bone_name)
         if bone_index == -1: continue
 
@@ -52,7 +52,7 @@ func _ready():
 
     ary_axis.clear()
 
-    for i in range(GDMocopi.DEFAULT_MOCOPI_REMAP.size()):
+    for i in range(GDMocopi.DEFAULT_MOCOPI_PARAM.size()):
         var o = axis.instantiate()
         o.visible = false
         self.add_child(o)

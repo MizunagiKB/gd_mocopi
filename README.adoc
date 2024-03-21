@@ -21,10 +21,10 @@ endif::env-github,env-vscode[]
 
 
 ifdef::env-github,env-vscode[]
-link:README.adoc[Japanese] / link:README.en.adoc[English]
+link:README.adoc[Japanese] / English
 endif::env-github,env-vscode[]
 ifndef::env-github,env-vscode[]
-link:index{adocsuffix}[Japanese] / link:index.en{adocsuffix}[English]
+link:index{adocsuffix}[Japanese] / English
 endif::env-github,env-vscode[]
 
 
@@ -39,6 +39,13 @@ image::docs/res/images/gd_mocopi_fig1.png[]
 
 == 使用方法
 
+ifdef::env-github,env-vscode[]
+* link:./docs/USAGE.ja{adocsuffix}[]
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+* link:./USAGE.ja{adocsuffix}[]
+endif::env-github,env-vscode[]
+
 基本的な使用方法は、使用したいシーンに GDMocopi と VRM を追加して、VRM のSkeleton3D を GDMocopi に割り当ててください。
 
 ドキュメントはまだ用意されていないのですが、mocopi の情報を受け取って VRM モデルを動かすだけのサンプルとして demo.tscn を用意してあります。
@@ -46,14 +53,20 @@ image::docs/res/images/gd_mocopi_fig1.png[]
 
 == ライセンス
 
+GDMocopi 本体は MIT License として公開致します。 +
+異なるライセンスのものが含まれていますので、再利用する際にはお気をつけ下さい。
+
 VRM addon for Godot Engine::
-VRMファイルの読み込みに、 V-Sekai/godot-vrm アドオンを使用しています。
+VRMファイルの読み込みに、 V-Sekai/godot-vrm アドオンを使用しています。 +
 https://github.com/V-Sekai/godot-vrm/
 
 RAYNOSちゃん Avatar::
 VRMモデルとして RAYNOS-chan-avatar_v1.0.3.zip を使用しています。 +
 https://www.sony.net/Products/mocopi-dev/jp/downloads/DownloadInfo.html
 
+Font Awesome::
+GUIで使用しているアイコンの一部に FontAwesome のものを使用しています。 +
+https://fontawesome.com/
 
 == 関連情報
 

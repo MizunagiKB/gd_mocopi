@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://bp7bd255qy17p"]
+[gd_scene load_steps=122 format=3 uid="uid://bp7bd255qy17p"]
 
 [ext_resource type="Script" path="res://editor.gd" id="1_1dgpq"]
 [ext_resource type="PackedScene" uid="uid://ytwcgfjj37k0" path="res://res/vrm/RAYNOS-chan-avatar_v1.0.3/VRM/RAYNOS-chan_1.0.2.vrm" id="3_o577v"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://7yfg0lbyxtps" path="res://res/icon/upload-solid.svg" id="8_86m01"]
 [ext_resource type="Script" path="res://libs/gd_mocopi/preview_axis_vrm.gd" id="8_tld7n"]
 [ext_resource type="Script" path="res://libs/gd_mocopi/gd_mocopi.gd" id="11_lj047"]
+[ext_resource type="Texture2D" uid="uid://cifpc158drakk" path="res://res/icon/video-solid.svg" id="11_wbmd3"]
+[ext_resource type="Texture2D" uid="uid://s2mvnw3ya5oj" path="res://res/icon/file-export-solid.svg" id="12_vkb0u"]
 
 [sub_resource type="Resource" id="Resource_ygloy"]
 resource_name = "LeftUpperLeg"
@@ -1737,6 +1739,8 @@ volumetric_fog_density = 0.0396
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iprv3"]
 albedo_color = Color(0.12549, 0.12549, 0.12549, 1)
 
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pmwrm"]
+
 [node name="editor" type="Node3D"]
 script = ExtResource("1_1dgpq")
 
@@ -1790,7 +1794,6 @@ size = Vector3(100, 1, 100)
 [node name="FileDialog" type="FileDialog" parent="."]
 initial_position = 1
 size = Vector2i(640, 320)
-filters = PackedStringArray("*.json")
 
 [node name="PreviewAxisMocopi" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.08165e-12, 2.08165e-12)
@@ -1817,8 +1820,8 @@ offset_right = 96.0
 offset_bottom = 40.0
 tooltip_text = "Load"
 focus_mode = 0
+text = "Load"
 icon = ExtResource("8_86m01")
-icon_alignment = 1
 expand_icon = true
 
 [node name="btn_save" type="Button" parent="ui"]
@@ -1829,8 +1832,8 @@ offset_right = 192.0
 offset_bottom = 40.0
 tooltip_text = "Save"
 focus_mode = 0
+text = "Save"
 icon = ExtResource("7_y4oga")
-icon_alignment = 1
 expand_icon = true
 
 [node name="chk_listen" type="CheckButton" parent="ui"]
@@ -1878,9 +1881,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
-offset_top = -36.0
+offset_top = -38.0
 offset_right = 96.0
-offset_bottom = -12.0
+offset_bottom = -4.0
 grow_vertical = 0
 text = "0"
 horizontal_alignment = 2
@@ -1892,9 +1895,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 104.0
-offset_top = -36.0
+offset_top = -38.0
 offset_right = 192.0
-offset_bottom = -12.0
+offset_bottom = -4.0
 grow_vertical = 0
 text = "0
 "
@@ -1908,10 +1911,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -38.0
-offset_right = -8.0
-offset_bottom = -12.0
+offset_left = -152.0
+offset_top = -36.0
+offset_right = -64.0
+offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "0.000"
@@ -2001,7 +2004,7 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 8.0
-offset_top = 208.0
+offset_top = 248.0
 offset_right = 192.0
 offset_bottom = -44.0
 grow_vertical = 2
@@ -2025,6 +2028,72 @@ focus_mode = 0
 text = "On"
 alignment = 2
 
+[node name="opt_mocopi_bone" type="OptionButton" parent="ui"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 208.0
+offset_right = 192.0
+offset_bottom = 240.0
+focus_mode = 0
+
+[node name="btn_record" type="Button" parent="ui"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -76.0
+offset_right = -8.0
+offset_bottom = -44.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Recording Animation"
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("11_wbmd3")
+icon_alignment = 1
+expand_icon = true
+
+[node name="btn_export" type="Button" parent="ui"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -36.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+tooltip_text = "Export Animation"
+focus_mode = 0
+icon = ExtResource("12_vkb0u")
+icon_alignment = 1
+expand_icon = true
+
+[node name="scroll_seek" type="HScrollBar" parent="ui"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -68.0
+offset_right = -64.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../RAYNOS/Reference/GeneralSkeleton")
+libraries = {
+"": SubResource("AnimationLibrary_pmwrm")
+}
+
 [connection signal="confirmed" from="FileDialog" to="." method="_on_file_dialog_confirmed"]
 [connection signal="pressed" from="ui/btn_load" to="." method="_on_btn_load_pressed"]
 [connection signal="pressed" from="ui/btn_save" to="." method="_on_btn_save_pressed"]
@@ -2040,5 +2109,9 @@ alignment = 2
 [connection signal="item_selected" from="ui/list_bone" to="." method="_on_item_list_item_selected"]
 [connection signal="text_changed" from="ui/line_order" to="." method="_on_line_order_text_changed"]
 [connection signal="toggled" from="ui/chk_on" to="." method="_on_chk_on_toggled"]
+[connection signal="item_selected" from="ui/opt_mocopi_bone" to="." method="_on_opt_mocopi_bone_item_selected"]
+[connection signal="toggled" from="ui/btn_record" to="." method="_on_btn_record_toggled"]
+[connection signal="pressed" from="ui/btn_export" to="." method="_on_btn_export_pressed"]
+[connection signal="value_changed" from="ui/scroll_seek" to="." method="_on_scroll_seek_value_changed"]
 
 [editable path="RAYNOS"]

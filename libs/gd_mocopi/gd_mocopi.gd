@@ -10,145 +10,138 @@ const MOCOPI_BONE_COUNT: int = 27
 
 const DEFAULT_MOCOPI_PARAM: Dictionary = {
     "Hips": {
+        "index": 0, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
         "order": "XYZ", "on": true
     },
     "Spine": {
+        "index": 2, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
         "order": "XYZ", "on": true
     },
     "Chest": {
+        "index": 6, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
         "order": "XYZ", "on": true
     },
     "Neck": {
+        "index": 8, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
         "order": "XYZ", "on": true
     },
     "Head": {
+        "index": 10, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
         "order": "XYZ", "on": true
     },
 
     "LeftShoulder": {
+        "index": 11, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
         "order": "ZXY", "on": true
     },
     "LeftUpperArm": {
+        "index": 12, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
         "order": "ZXY", "on": true
     },
     "LeftLowerArm": {
+        "index": 13, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": 1,
         "order": "YXZ", "on": true
     },
     "LeftHand": {
+        "index": 14, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
         "order": "ZXY", "on": true
     },
 
     "RightShoulder": {
+        "index": 15, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": -1,
         "order": "ZXY", "on": true
     },
     "RightUpperArm": {
+        "index": 16, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
         "order": "ZXY", "on": true
     },
     "RightLowerArm": {
+        "index": 17, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": 1,
         "order": "YXZ", "on": true
     },
     "RightHand": {
+        "index": 18, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
         "order": "ZXY", "on": true
     },
 
     "LeftUpperLeg": {
+        "index": 19, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
         "order": "XYZ", "on": true
     },
     "LeftLowerLeg": {
+        "index": 20, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
         "order": "XYZ", "on": true
     },
     "LeftFoot": {
+        "index": 21, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": 1,
         "order": "XZY", "on": true
     },
     "LeftToes": {
+        "index": 22, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": -1,
         "order": "XZY", "on": true
     },
 
     "RightUpperLeg": {
+        "index": 23, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
         "order": "XYZ", "on": true
     },
     "RightLowerLeg": {
+        "index": 24, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
         "order": "XYZ", "on": true
     },
     "RightFoot": {
+        "index": 25, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": 1,
         "order": "XZY", "on": true
     },
     "RightToes": {
+        "index": 26, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": -1,
         "order": "XZY", "on": true
     }
 }
 
-const DEFAULT_MOCOPI_REMAP: Dictionary = {
-    "Hips": {"index": 0, "ref": []},
-    "Spine": {"index": 2, "ref": []},
-    "Chest": {"index": 6, "ref": []},
-    "Neck": {"index": 8, "ref": []},
-    "Head": {"index": 10, "ref": []},
-
-    "LeftShoulder": {"index": 11, "ref": []},
-    "LeftUpperArm": {"index": 12, "ref": []},
-    "LeftLowerArm": {"index": 13, "ref": []},
-    "LeftHand": {"index": 14, "ref": []},
-
-    "RightShoulder": {"index": 15, "ref": []},
-    "RightUpperArm": {"index": 16, "ref": []},
-    "RightLowerArm": {"index": 17, "ref": []},
-    "RightHand": {"index": 18, "ref": []},
-
-    "LeftUpperLeg": {"index": 19, "ref": []},
-    "LeftLowerLeg": {"index": 20, "ref": []},
-    "LeftFoot": {"index": 21, "ref": []},
-    "LeftToes": {"index": 22, "ref": []},
-
-    "RightUpperLeg": {"index": 23, "ref": []},
-    "RightLowerLeg": {"index": 24, "ref": []},
-    "RightFoot": {"index": 25, "ref": []},
-    "RightToes": {"index": 26, "ref": []}
-}
-
-enum {
+enum E_MOCOPI_BONE {
     root = 0,
     torso_1 = 1, torso_2 = 2, torso_3 = 3, torso_4 = 4, torso_5 = 5, torso_6 = 6, torso_7 = 7,
     neck_1 = 8, neck_2 = 9, head = 10,
@@ -186,14 +179,28 @@ var btdt_count: int
 
 # for Skeleton3D
 var dict_param: Dictionary
-var dict_remap: Dictionary
 
+var record_time_st: float
+var record_status: bool
+var ary_record: Array
+
+
+var record: bool:
+    get:
+        return self.record_status
+    set(value):
+        if value == true:
+            self.record_time_st = self.time
+            ary_record.clear()
+            self.skel_update()
+        self.record_status = value
 
 var valid: bool:
-    get: return valid_bndt and valid_btdt
+    get:
+        return self.valid_bndt and self.valid_btdt
 
 
-func json_load(param_pathname: String) -> bool:
+func param_load(param_pathname: String) -> bool:
     var rf: FileAccess
 
     rf = FileAccess.open(param_pathname, FileAccess.READ)
@@ -204,13 +211,50 @@ func json_load(param_pathname: String) -> bool:
     return true
 
 
-func json_save(param_pathname: String) -> bool:
+func param_save(param_pathname: String) -> bool:
     var wf: FileAccess
 
     wf = FileAccess.open(param_pathname, FileAccess.WRITE)
     if wf == null: return false
     wf.store_string(JSON.stringify(dict_param, "    ", false))
     wf.close()
+
+    return true
+
+
+func animation_save(animation_pathname: String) -> bool:
+    var skel: Skeleton3D = get_node_or_null(skel_nodepath)
+    if skel == null: return false
+
+    if valid == false: return false
+
+    var animation = Animation.new()
+    var length: float = 0.0
+
+    for r in self.ary_record:
+        for work in r:
+            var bone_name: String = skel.get_bone_name(work.bone_index)
+            var track_path: String = ":" + bone_name
+
+            var track_index: int
+            if work.bone_index == 0:
+                track_index = animation.find_track(track_path, Animation.TYPE_POSITION_3D)
+                if track_index == -1:
+                    track_index = animation.add_track(Animation.TYPE_POSITION_3D)
+                    animation.track_set_path(track_index, track_path)
+                animation.track_insert_key(track_index, work.time, work.position)
+
+            track_index = animation.find_track(track_path, Animation.TYPE_ROTATION_3D)
+            if track_index == -1:
+                track_index = animation.add_track(Animation.TYPE_ROTATION_3D)
+                animation.track_set_path(track_index, track_path)
+            animation.track_insert_key(track_index, work.time, work.quaternion)
+            
+            length = work.time
+
+    animation.length = length
+
+    ResourceSaver.save(animation, animation_pathname)
 
     return true
 
@@ -266,14 +310,15 @@ func skel_update():
 
     if valid == false: return
 
-    for bone_name in dict_remap.keys():
+    var ary_record_work: Array[Dictionary]
+
+    for bone_name in dict_param.keys():
         var bone_index: int = skel.find_bone(bone_name)
         if bone_index == -1: continue
 
         var mocopi_param: Dictionary = dict_param[bone_name]
-        var mocopi_remap: Dictionary = dict_remap[bone_name]
-        var bndt: GDMocopi.MocopiBndt = ary_bndt[mocopi_remap.index]
-        var btdt: GDMocopi.MocopiBtdt = ary_btdt[mocopi_remap.index]
+        var bndt: GDMocopi.MocopiBndt = ary_bndt[mocopi_param.index]
+        var btdt: GDMocopi.MocopiBtdt = ary_btdt[mocopi_param.index]
 
         var tform_rest: Transform3D = skel.get_bone_rest(bone_index)
         var quat_rest: Quaternion = Quaternion(tform_rest.basis)
@@ -294,12 +339,24 @@ func skel_update():
             skel.set_bone_pose_position(bone_index, btdt.vct3)
 
         if mocopi_param.on == true:
-            for i in mocopi_remap.ref:
+            for i in mocopi_param.ref:
                 quat_rest *= ary_btdt[i].quat
             skel.set_bone_pose_rotation(bone_index, quat_rest * qx * qy * qz * quat_remap)
         else:
             skel.set_bone_pose_rotation(bone_index, quat_rest)
 
+        ary_record_work.push_back(
+            {
+                "bone_index": bone_index,
+                "time": self.time - self.record_time_st,
+                "quaternion": quat_rest * qx * qy * qz * quat_remap,
+                "position": btdt.vct3
+            }
+        )
+
+    if record_status == true:
+        ary_record.push_back(ary_record_work)
+        
 
 func listen():
     valid_bndt = false
@@ -521,8 +578,8 @@ func _decode(stream: StreamPeerBuffer) -> bool:
  
 
 func _ready():
+    record_status = false
     dict_param = DEFAULT_MOCOPI_PARAM
-    dict_remap = DEFAULT_MOCOPI_REMAP
 
 
 func _process(_delta):
@@ -537,4 +594,5 @@ func _process(_delta):
 
         _decode(stream)
 
-    skel_update()
+    if receiver.is_listening():
+        skel_update()
