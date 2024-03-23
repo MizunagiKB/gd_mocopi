@@ -19,17 +19,37 @@ signal anim_create(anim: Animation)
 func anim_play(animation: String):
 
     $AnimationPlayer.play("VRM/" + animation)
+    var anim: Animation = $AnimationPlayer.get_animation("VRM/" + animation)
     $hs_timeline.min_value = 0.0
-    $hs_timeline.max_value = $AnimationPlayer.current_animation_length
-    $hs_timeline.value = $AnimationPlayer.current_animation_position
+    $hs_timeline.max_value = anim.length
+    $hs_timeline.value = 0
+    $hs_timeline.visible = true
     $AnimationPlayer.stop()
 
-    $btn_play.icon = play_of
+    $btn_play.icon = play_on
     $btn_play.button_pressed = false
+    $btn_play.disabled = false
+
+
+
+func anim_reset():
+    $AnimationPlayer.current_animation = ""
+    $AnimationPlayer.stop()
+    $AnimationPlayer.clear_caches()
+    $AnimationPlayer.clear_queue()
+
+    $hs_timeline.min_value = 0.0
+    $hs_timeline.max_value = 0.0
+    $hs_timeline.value = 1.0
+    $hs_timeline.visible = false
+
+    $btn_play.icon = play_on
+    $btn_play.button_pressed = false
+    $btn_play.disabled = true
 
 
 func _ready():
-    pass
+    self.anim_reset()
 
 
 func _process(_delta):
@@ -43,7 +63,7 @@ func _process(_delta):
     if $btn_record.button_pressed == true:
         $lbl_position.text = "%.3f" % [self.anim.length]
     elif $btn_play.button_pressed == true:
-        $lbl_position.text = "%.3f / %.3f" % [$AnimationPlayer.current_animation_position, self.anim.length]
+        $lbl_position.text = "%.3f / %.3f" % [$AnimationPlayer.current_animation_position, $AnimationPlayer.current_animation_length]
         $hs_timeline.value = $AnimationPlayer.current_animation_position
     else:
         $lbl_position.text = "0.000"

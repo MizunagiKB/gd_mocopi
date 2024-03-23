@@ -4,6 +4,9 @@ extends Panel
 @export_node_path("GDMocopi") var mocopi_nodepath: NodePath
 
 
+signal show_panel(show_order: bool)
+
+
 func _ready():
     pass
 
@@ -57,3 +60,7 @@ func _on_file_dialog_file_selected(path):
             o_mocopi.param_load(path)
         FileDialog.FILE_MODE_SAVE_FILE:
             o_mocopi.param_save(path)
+
+
+func _on_btn_show_ui_toggled(button_pressed):
+    show_panel.emit(button_pressed)

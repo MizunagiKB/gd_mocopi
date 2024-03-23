@@ -4,6 +4,7 @@ extends Control
 @export_node_path("GDMocopi") var mocopi_nodepath: NodePath
 
 
+signal anim_lib_reseted()
 signal anim_selected(animation: String)
 
 
@@ -28,7 +29,8 @@ func anim_remove():
     pass
 
 
-func _ready():
+func anim_reset():
+    anim_lib_reseted.emit()
 
     $panel_take_lib/tree_take.clear()
     $panel_take_lib/tree_take.columns = 2
@@ -38,12 +40,33 @@ func _ready():
     $panel_take_lib/tree_take.create_item()
     $panel_take_lib/tree_take.hide_root = true
 
+    for anim_name in anim_lib.get_animation_list():
+        self.anim_lib.remove_animation(anim_name)
+
+
+func show_panel(show_order: bool):
+    var tw = self.create_tween()
+    tw.set_trans(Tween.TRANS_SINE)
+    if show_order == true:
+        tw.tween_property(self, "position", Vector2(1280, 0), 0.5)
+    else:
+        tw.tween_property(self, "position", Vector2(1280 + 384, 0), 0.5)
+
+
+func _ready():
+    self.anim_reset()
+
 
 func _process(_delta):
     var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
     if o_mocopi == null: return
 
     $panel_preview/SubViewportContainer/SubViewport/preview_axis_mocopi.preview(o_mocopi)
+
+
+func _on_file_dialog_file_selected(path):
+    
+    ResourceSaver.save(self.anim_lib, path)
 
 
 func _on_tree_take_item_selected():
@@ -59,6 +82,5 @@ func _on_btn_export_pressed():
     $FileDialog.show()
 
 
-func _on_file_dialog_file_selected(path):
-    
-    ResourceSaver.save(self.anim_lib, path)
+func _on_btn_trash_pressed():
+    self.anim_reset()

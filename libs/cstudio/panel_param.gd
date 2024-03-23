@@ -7,6 +7,15 @@ extends Control
 var current_bone_name: String
 
 
+func show_panel(show_order: bool):
+    var tw = self.create_tween()
+    tw.set_trans(Tween.TRANS_SINE)
+    if show_order == true:
+        tw.tween_property(self, "position", Vector2(0, 0), 0.5)
+    else:
+        tw.tween_property(self, "position", Vector2(0 - 384, 0), 0.5)
+
+
 func _ready():
     $panel_bone/opt_mocopi_bone.clear()
     for bone_name in GDMocopi.E_MOCOPI_BONE.keys():
