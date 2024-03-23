@@ -47,10 +47,13 @@ func anim_reset():
 func show_panel(show_order: bool):
     var tw = self.create_tween()
     tw.set_trans(Tween.TRANS_SINE)
+
+    var vct: Vector2i = DisplayServer.window_get_size()
+
     if show_order == true:
-        tw.tween_property(self, "position", Vector2(1280, 0), 0.5)
+        tw.tween_property(self, "position", Vector2(vct.x, 0), 0.5)
     else:
-        tw.tween_property(self, "position", Vector2(1280 + 384, 0), 0.5)
+        tw.tween_property(self, "position", Vector2(vct.x + 384, 0), 0.5)
 
 
 func _ready():
