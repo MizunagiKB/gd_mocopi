@@ -19,9 +19,9 @@ signal anim_create(anim: Animation)
 func anim_play(animation: String):
 
     $AnimationPlayer.play("VRM/" + animation)
-    var anim: Animation = $AnimationPlayer.get_animation("VRM/" + animation)
+    var anim_curr: Animation = $AnimationPlayer.get_animation("VRM/" + animation)
     $hs_timeline.min_value = 0.0
-    $hs_timeline.max_value = anim.length
+    $hs_timeline.max_value = anim_curr.length
     $hs_timeline.value = 0
     $hs_timeline.visible = true
     $AnimationPlayer.stop()
@@ -29,7 +29,6 @@ func anim_play(animation: String):
     $btn_play.icon = play_on
     $btn_play.button_pressed = false
     $btn_play.disabled = false
-
 
 
 func anim_reset():
