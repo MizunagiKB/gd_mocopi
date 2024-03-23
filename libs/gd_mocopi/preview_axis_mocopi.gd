@@ -20,6 +20,7 @@ func preview(o_mocopi: GDMocopi):
 
     im.clear_surfaces()
 
+    if o_mocopi == null: return
     if o_mocopi.valid != true: return
 
     im.surface_begin(Mesh.PRIMITIVE_LINES, mat)

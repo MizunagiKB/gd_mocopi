@@ -1,5 +1,7 @@
 {
     "Hips": {
+        "index": 0,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -10,6 +12,8 @@
         "on": true
     },
     "Spine": {
+        "index": 2,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -20,6 +24,8 @@
         "on": true
     },
     "Chest": {
+        "index": 6,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -30,6 +36,8 @@
         "on": true
     },
     "Neck": {
+        "index": 8,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -40,6 +48,8 @@
         "on": true
     },
     "Head": {
+        "index": 10,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -50,6 +60,8 @@
         "on": true
     },
     "LeftShoulder": {
+        "index": 11,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -60,6 +72,8 @@
         "on": true
     },
     "LeftUpperArm": {
+        "index": 12,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -70,6 +84,8 @@
         "on": true
     },
     "LeftLowerArm": {
+        "index": 13,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -80,6 +96,8 @@
         "on": true
     },
     "LeftHand": {
+        "index": 14,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -90,6 +108,8 @@
         "on": true
     },
     "RightShoulder": {
+        "index": 15,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -100,6 +120,8 @@
         "on": true
     },
     "RightUpperArm": {
+        "index": 16,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -110,6 +132,8 @@
         "on": true
     },
     "RightLowerArm": {
+        "index": 17,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -120,6 +144,8 @@
         "on": true
     },
     "RightHand": {
+        "index": 18,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -130,6 +156,8 @@
         "on": true
     },
     "LeftUpperLeg": {
+        "index": 19,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -140,6 +168,8 @@
         "on": true
     },
     "LeftLowerLeg": {
+        "index": 20,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -150,6 +180,8 @@
         "on": true
     },
     "LeftFoot": {
+        "index": 21,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -160,6 +192,8 @@
         "on": true
     },
     "LeftToes": {
+        "index": 22,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -170,6 +204,8 @@
         "on": true
     },
     "RightUpperLeg": {
+        "index": 23,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -180,6 +216,8 @@
         "on": true
     },
     "RightLowerLeg": {
+        "index": 24,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -190,6 +228,8 @@
         "on": true
     },
     "RightFoot": {
+        "index": 25,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,
@@ -200,6 +240,8 @@
         "on": true
     },
     "RightToes": {
+        "index": 26,
+        "ref": [],
         "x": 0,
         "y": 0,
         "z": 0,

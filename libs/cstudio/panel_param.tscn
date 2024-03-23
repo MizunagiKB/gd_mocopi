@@ -1,0 +1,151 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpbuu7suo5pxd"]
+
+[ext_resource type="Script" path="res://libs/cstudio/panel_param.gd" id="1_ws70c"]
+
+[node name="panel_param" type="Control"]
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+script = ExtResource("1_ws70c")
+
+[node name="panel_adjust" type="Panel" parent="."]
+layout_mode = 1
+offset_left = -8.0
+offset_top = 40.0
+offset_right = 240.0
+offset_bottom = 168.0
+
+[node name="btn_x" type="Button" parent="panel_adjust"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 40.0
+focus_mode = 0
+toggle_mode = true
+text = "X"
+clip_text = true
+
+[node name="sli" type="HSlider" parent="panel_adjust/btn_x"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 128.0
+offset_bottom = 32.0
+focus_mode = 0
+max_value = 360.0
+step = 15.0
+
+[node name="spin" type="SpinBox" parent="panel_adjust/btn_x"]
+layout_mode = 0
+offset_left = 136.0
+offset_right = 224.0
+offset_bottom = 31.0
+max_value = 360.0
+alignment = 2
+
+[node name="btn_y" type="Button" parent="panel_adjust"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 80.0
+focus_mode = 0
+toggle_mode = true
+text = "Y"
+
+[node name="sli" type="HSlider" parent="panel_adjust/btn_y"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 128.0
+offset_bottom = 32.0
+focus_mode = 0
+max_value = 360.0
+step = 15.0
+
+[node name="spin" type="SpinBox" parent="panel_adjust/btn_y"]
+layout_mode = 0
+offset_left = 136.0
+offset_right = 224.0
+offset_bottom = 31.0
+max_value = 360.0
+alignment = 2
+
+[node name="btn_z" type="Button" parent="panel_adjust"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 48.0
+offset_bottom = 120.0
+focus_mode = 0
+toggle_mode = true
+text = "Z"
+
+[node name="sli" type="HSlider" parent="panel_adjust/btn_z"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 128.0
+offset_bottom = 32.0
+focus_mode = 0
+max_value = 360.0
+step = 15.0
+
+[node name="spin" type="SpinBox" parent="panel_adjust/btn_z"]
+layout_mode = 0
+offset_left = 136.0
+offset_right = 224.0
+offset_bottom = 31.0
+max_value = 360.0
+alignment = 2
+
+[node name="panel_bone" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 176.0
+offset_right = 240.0
+offset_bottom = -40.0
+grow_vertical = 2
+
+[node name="line_order" type="LineEdit" parent="panel_bone"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 40.0
+alignment = 1
+max_length = 3
+
+[node name="chk_on" type="CheckButton" parent="panel_bone"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 40.0
+focus_mode = 0
+text = "On"
+alignment = 2
+
+[node name="opt_mocopi_bone" type="OptionButton" parent="panel_bone"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 240.0
+offset_bottom = 80.0
+focus_mode = 0
+
+[node name="list_bone" type="ItemList" parent="panel_bone"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 88.0
+offset_right = 240.0
+offset_bottom = -8.0
+grow_vertical = 2
+
+[connection signal="value_changed" from="panel_adjust/btn_x/sli" to="." method="_on_sli_x_value_changed"]
+[connection signal="value_changed" from="panel_adjust/btn_y/sli" to="." method="_on_sli_y_value_changed"]
+[connection signal="value_changed" from="panel_adjust/btn_z/sli" to="." method="_on_sli_z_value_changed"]
+[connection signal="item_selected" from="panel_bone/list_bone" to="." method="_on_list_bone_item_selected"]

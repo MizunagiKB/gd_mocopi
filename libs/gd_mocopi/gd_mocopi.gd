@@ -5,9 +5,7 @@ class_name GDMocopi
 @export var receive_port: int = 12351
 @export_node_path("Skeleton3D") var skel_nodepath: NodePath
 
-
 const MOCOPI_BONE_COUNT: int = 27
-
 const DEFAULT_MOCOPI_PARAM: Dictionary = {
     "Hips": {
         "index": 0, "ref": [],
@@ -162,6 +160,23 @@ class MocopiBtdt:
     var quat: Quaternion
     var vct3: Vector3
 
+class VRMPose:
+    var bnid: int
+    var pbid: int
+    var bone_name: String
+    var quaternion: Quaternion
+    var position: Vector3
+    
+    func _init(_bnid: int, _pbid: int, b: String, q: Quaternion, p: Vector3):
+        self.bnid = _bnid
+        self.pbid = _pbid
+        self.bone_name = b
+        self.quaternion = q
+        self.position = p
+
+
+signal vrm_pose_update(time: float, ary_mocopi_animation: Array[VRMPose])
+
 
 var receiver := UDPServer.new()
 var vrsn: int
@@ -180,20 +195,6 @@ var btdt_count: int
 # for Skeleton3D
 var dict_param: Dictionary
 
-var record_time_st: float
-var record_status: bool
-var ary_record: Array
-
-
-var record: bool:
-    get:
-        return self.record_status
-    set(value):
-        if value == true:
-            self.record_time_st = self.time
-            ary_record.clear()
-            self.skel_update()
-        self.record_status = value
 
 var valid: bool:
     get:
@@ -218,43 +219,6 @@ func param_save(param_pathname: String) -> bool:
     if wf == null: return false
     wf.store_string(JSON.stringify(dict_param, "    ", false))
     wf.close()
-
-    return true
-
-
-func animation_save(animation_pathname: String) -> bool:
-    var skel: Skeleton3D = get_node_or_null(skel_nodepath)
-    if skel == null: return false
-
-    if valid == false: return false
-
-    var animation = Animation.new()
-    var length: float = 0.0
-
-    for r in self.ary_record:
-        for work in r:
-            var bone_name: String = skel.get_bone_name(work.bone_index)
-            var track_path: String = ":" + bone_name
-
-            var track_index: int
-            if work.bone_index == 0:
-                track_index = animation.find_track(track_path, Animation.TYPE_POSITION_3D)
-                if track_index == -1:
-                    track_index = animation.add_track(Animation.TYPE_POSITION_3D)
-                    animation.track_set_path(track_index, track_path)
-                animation.track_insert_key(track_index, work.time, work.position)
-
-            track_index = animation.find_track(track_path, Animation.TYPE_ROTATION_3D)
-            if track_index == -1:
-                track_index = animation.add_track(Animation.TYPE_ROTATION_3D)
-                animation.track_set_path(track_index, track_path)
-            animation.track_insert_key(track_index, work.time, work.quaternion)
-            
-            length = work.time
-
-    animation.length = length
-
-    ResourceSaver.save(animation, animation_pathname)
 
     return true
 
@@ -310,7 +274,7 @@ func skel_update():
 
     if valid == false: return
 
-    var ary_record_work: Array[Dictionary]
+    var ary_mocopi_animation: Array[VRMPose] = []
 
     for bone_name in dict_param.keys():
         var bone_index: int = skel.find_bone(bone_name)
@@ -321,42 +285,41 @@ func skel_update():
         var btdt: GDMocopi.MocopiBtdt = ary_btdt[mocopi_param.index]
 
         var tform_rest: Transform3D = skel.get_bone_rest(bone_index)
-        var quat_rest: Quaternion = Quaternion(tform_rest.basis)
-
-        var qx: Quaternion = Quaternion(Vector3(1.0, 0.0, 0.0), deg_to_rad(mocopi_param.x))
-        var qy: Quaternion = Quaternion(Vector3(0.0, 1.0, 0.0), deg_to_rad(mocopi_param.y))
-        var qz: Quaternion = Quaternion(Vector3(0.0, 0.0, 1.0), deg_to_rad(mocopi_param.z))
-
-        var quat_remap: Quaternion = quaternion_calc(
-            btdt,
-            mocopi_param.order,
-            mocopi_param.inv_x,
-            mocopi_param.inv_y,
-            mocopi_param.inv_z
-        )
+        var quat_calc: Quaternion = Quaternion(tform_rest.basis)
 
         if bndt.pbid == -1:
             skel.set_bone_pose_position(bone_index, btdt.vct3)
 
         if mocopi_param.on == true:
-            for i in mocopi_param.ref:
-                quat_rest *= ary_btdt[i].quat
-            skel.set_bone_pose_rotation(bone_index, quat_rest * qx * qy * qz * quat_remap)
-        else:
-            skel.set_bone_pose_rotation(bone_index, quat_rest)
+            var qx: Quaternion = Quaternion(Vector3(1.0, 0.0, 0.0), deg_to_rad(mocopi_param.x))
+            var qy: Quaternion = Quaternion(Vector3(0.0, 1.0, 0.0), deg_to_rad(mocopi_param.y))
+            var qz: Quaternion = Quaternion(Vector3(0.0, 0.0, 1.0), deg_to_rad(mocopi_param.z))
+            var quat_remap: Quaternion = quaternion_calc(
+                btdt,
+                mocopi_param.order,
+                mocopi_param.inv_x,
+                mocopi_param.inv_y,
+                mocopi_param.inv_z
+            )
 
-        ary_record_work.push_back(
-            {
-                "bone_index": bone_index,
-                "time": self.time - self.record_time_st,
-                "quaternion": quat_rest * qx * qy * qz * quat_remap,
-                "position": btdt.vct3
-            }
+            for i in mocopi_param.ref:
+                quat_calc *= ary_btdt[i].quat
+            quat_calc = quat_calc * qx * qy * qz * quat_remap
+
+        skel.set_bone_pose_rotation(bone_index, quat_calc)
+
+        ary_mocopi_animation.push_back(
+            VRMPose.new(
+                bndt.bnid,
+                bndt.pbid,
+                bone_name,
+                quat_calc,
+                btdt.vct3
+            )
         )
 
-    if record_status == true:
-        ary_record.push_back(ary_record_work)
-        
+    vrm_pose_update.emit(self.time, ary_mocopi_animation)
+
 
 func listen():
     valid_bndt = false
@@ -578,7 +541,6 @@ func _decode(stream: StreamPeerBuffer) -> bool:
  
 
 func _ready():
-    record_status = false
     dict_param = DEFAULT_MOCOPI_PARAM
 
 

@@ -1,0 +1,52 @@
+= Usage
+:encoding: utf-8
+:lang: ja
+:author: MizunagiKB <mizukb@live.jp>
+:copyright: 2024 MizunagiKB
+:doctype: book
+:nofooter:
+:toc: left
+:toclevels: 3
+:source-highlighter: highlight.js
+:icons: font
+:experimental:
+:stylesdir: ./res/theme/css
+:stylesheet: mizunagi-works.css
+ifdef::env-github,env-vscode[]
+:adocsuffix: .adoc
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+:adocsuffix: .html
+endif::env-github,env-vscode[]
+
+
+ifdef::env-github,env-vscode[]
+link:README.adoc[Japanese] / English
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+link:index{adocsuffix}[Japanese] / English
+endif::env-github,env-vscode[]
+
+
+== 使用方法
+
+GDMocopiを利用するには以下のものが必要となります。
+
+* Godot Engine（4.1 以上）
+* link:https://www.sony.jp/mocopi/[SONY mocopi]
+** mocopi
+** link:https://play.google.com/store/apps/details?id=com.sony.mocopi[android向けのandroidアプリ] または link:https://apps.apple.com/jp/app/id6444393701?mt=8[iOS向けのmocopiアプリ]
+
+
+mocopi本体を所有していない場合は、link:https://www.sony.net/Products/mocopi-dev/jp/[デベロッパーサイト]から BVH Sender を入手することで、擬似的に mocopi からの送信を作り出す事が出来ます。
+
+
+=== プロジェクトの作成
+
+この説明はGodot Engineの知識をお持ちであることを前提に説明をしています。
+
+Godot Engine本体についてはGodot Engineのlink:https://docs.godotengine.org/ja/4.x/index.html[ドキュメント]を参照してください。
+
+
+まず、
+

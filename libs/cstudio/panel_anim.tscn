@@ -1,0 +1,123 @@
+[gd_scene load_steps=7 format=3 uid="uid://sx1n0iawwhbi"]
+
+[ext_resource type="PackedScene" uid="uid://cjagx3eifs710" path="res://libs/gd_mocopi/preview_axis_mocopi.tscn" id="1_4majp"]
+[ext_resource type="Script" path="res://libs/cstudio/panel_anim.gd" id="1_ylido"]
+[ext_resource type="Texture2D" uid="uid://s2mvnw3ya5oj" path="res://res/icon/file-export-solid.svg" id="3_3n8cc"]
+
+[sub_resource type="Environment" id="Environment_mq3ff"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+
+[sub_resource type="World3D" id="World3D_q8ifs"]
+environment = SubResource("Environment_mq3ff")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq0u5"]
+albedo_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="panel_anim" type="Control"]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_ylido")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 2
+size = Vector2i(640, 480)
+access = 2
+
+[node name="panel_preview" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -272.0
+offset_top = 40.0
+offset_right = 8.0
+offset_bottom = 216.0
+grow_horizontal = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="panel_preview"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 168.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="panel_preview/SubViewportContainer"]
+own_world_3d = true
+world_3d = SubResource("World3D_q8ifs")
+handle_input_locally = false
+size = Vector2i(256, 160)
+size_2d_override = Vector2i(512, 512)
+render_target_update_mode = 4
+
+[node name="preview_axis_mocopi" parent="panel_preview/SubViewportContainer/SubViewport" instance=ExtResource("1_4majp")]
+
+[node name="camera" type="Camera3D" parent="panel_preview/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 4)
+current = true
+fov = 45.0
+far = 1024.0
+
+[node name="floor" type="CSGBox3D" parent="panel_preview/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.6, 2.08165e-12)
+material_override = SubResource("StandardMaterial3D_sq0u5")
+size = Vector3(100, 1, 100)
+
+[node name="panel_take_lib" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -272.0
+offset_top = 224.0
+offset_right = 8.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="btn_export" type="Button" parent="panel_take_lib"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 40.0
+focus_mode = 0
+icon = ExtResource("3_3n8cc")
+icon_alignment = 1
+expand_icon = true
+
+[node name="lbl_take_name" type="Label" parent="panel_take_lib"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 56.0
+offset_bottom = 40.0
+text = "Animation Lib"
+vertical_alignment = 1
+
+[node name="tree_take" type="Tree" parent="panel_take_lib"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 48.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+column_titles_visible = true
+allow_rmb_select = true
+hide_root = true
+select_mode = 1
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="panel_take_lib/btn_export" to="." method="_on_btn_export_pressed"]
+[connection signal="item_selected" from="panel_take_lib/tree_take" to="." method="_on_tree_take_item_selected"]

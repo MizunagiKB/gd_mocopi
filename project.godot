@@ -13,14 +13,14 @@ config_version=5
 config/name="GDMocopi"
 config/description="SONY mocopi for Godot demo & editor"
 config/tags=PackedStringArray("mocopi")
-run/main_scene="res://demo.tscn"
+run/main_scene="res://libs/cstudio/cstudio.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/dpi/allow_hidpi=false
 
 [editor_plugins]
