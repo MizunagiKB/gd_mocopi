@@ -67,6 +67,13 @@ func _process(_delta):
     $panel_preview/SubViewportContainer/SubViewport/preview_axis_mocopi.preview(o_mocopi)
 
 
+func _on_tree_take_gui_input(event):
+    if event is InputEventMouseButton:
+        if event.button_index == MOUSE_BUTTON_RIGHT:
+            $PopupMenu.position = event.global_position
+            $PopupMenu.show()
+
+
 func _on_file_dialog_file_selected(path):
     
     ResourceSaver.save(self.anim_lib, path)
@@ -87,3 +94,9 @@ func _on_btn_export_pressed():
 
 func _on_btn_trash_pressed():
     self.anim_reset()
+
+
+
+
+func _on_popup_menu_id_pressed(_id):
+    pass

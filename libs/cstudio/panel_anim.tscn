@@ -30,6 +30,13 @@ initial_position = 2
 size = Vector2i(640, 480)
 access = 2
 
+[node name="PopupMenu" type="PopupMenu" parent="."]
+size = Vector2i(119, 35)
+item_count = 1
+item_0/text = "Delete Item"
+item_0/id = 0
+item_0/disabled = true
+
 [node name="panel_preview" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -53,6 +60,7 @@ stretch = true
 own_world_3d = true
 world_3d = SubResource("World3D_q8ifs")
 handle_input_locally = false
+msaa_3d = 1
 size = Vector2i(256, 160)
 size_2d_override = Vector2i(512, 512)
 render_target_update_mode = 4
@@ -120,17 +128,26 @@ hide_root = true
 select_mode = 1
 
 [node name="btn_trash" type="Button" parent="panel_take_lib"]
-layout_mode = 0
-offset_left = 208.0
-offset_top = 416.0
-offset_right = 264.0
-offset_bottom = 448.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -40.0
+offset_right = -16.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
 focus_mode = 0
 icon = ExtResource("4_33x6u")
 icon_alignment = 1
 expand_icon = true
 
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]
 [connection signal="pressed" from="panel_take_lib/btn_export" to="." method="_on_btn_export_pressed"]
+[connection signal="gui_input" from="panel_take_lib/tree_take" to="." method="_on_tree_take_gui_input"]
 [connection signal="item_selected" from="panel_take_lib/tree_take" to="." method="_on_tree_take_item_selected"]
 [connection signal="pressed" from="panel_take_lib/btn_trash" to="." method="_on_btn_trash_pressed"]
