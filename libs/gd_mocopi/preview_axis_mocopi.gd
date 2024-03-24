@@ -73,6 +73,6 @@ func _ready():
 
 
 func _process(_delta):
-    if self.visible == true:
-        var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
-        self.preview(o_mocopi)
+    if self.visible == false: return
+    var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
+    self.preview(o_mocopi)
