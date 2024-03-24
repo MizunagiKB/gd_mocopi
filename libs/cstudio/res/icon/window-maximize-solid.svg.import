@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhwcy5es83p1e"
-path="res://.godot/imported/download-solid.svg-1919b943593a920525632b453d18e403.ctex"
+uid="uid://cohythgt0fwk"
+path="res://.godot/imported/window-maximize-solid.svg-f68b97d0e8241e1fe83af5729f0249f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/icon/download-solid.svg"
-dest_files=["res://.godot/imported/download-solid.svg-1919b943593a920525632b453d18e403.ctex"]
+source_file="res://libs/cstudio/res/icon/window-maximize-solid.svg"
+dest_files=["res://.godot/imported/window-maximize-solid.svg-f68b97d0e8241e1fe83af5729f0249f7.ctex"]
 
 [params]
 

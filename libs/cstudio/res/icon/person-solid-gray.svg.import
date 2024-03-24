@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq830ukgxbv7k"
-path="res://.godot/imported/window-minimize-solid.svg-a3adfa80adac222abe609179be2f4ec5.ctex"
+uid="uid://bcwt58me0jhau"
+path="res://.godot/imported/person-solid-gray.svg-d6dcb0505697ae06f9a023e50b9af733.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/icon/window-minimize-solid.svg"
-dest_files=["res://.godot/imported/window-minimize-solid.svg-a3adfa80adac222abe609179be2f4ec5.ctex"]
+source_file="res://libs/cstudio/res/icon/person-solid-gray.svg"
+dest_files=["res://.godot/imported/person-solid-gray.svg-d6dcb0505697ae06f9a023e50b9af733.ctex"]
 
 [params]
 

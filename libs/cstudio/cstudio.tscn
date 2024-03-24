@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://libs/cstudio/cstudio.gd" id="1_k136t"]
 [ext_resource type="PackedScene" uid="uid://18iywd4c8jr6" path="res://libs/cstudio/panel_status.tscn" id="4_jfwne"]
 [ext_resource type="PackedScene" uid="uid://cpbuu7suo5pxd" path="res://libs/cstudio/panel_param.tscn" id="5_rku56"]
-[ext_resource type="Texture2D" uid="uid://s2mvnw3ya5oj" path="res://res/icon/file-export-solid.svg" id="5_sbbgc"]
 [ext_resource type="PackedScene" uid="uid://sx1n0iawwhbi" path="res://libs/cstudio/panel_anim.tscn" id="6_321t2"]
 [ext_resource type="PackedScene" uid="uid://ytwcgfjj37k0" path="res://res/vrm/RAYNOS-chan-avatar_v1.0.3/VRM/RAYNOS-chan_1.0.2.vrm" id="7_ggvlw"]
+[ext_resource type="Texture2D" uid="uid://s2mvnw3ya5oj" path="res://libs/cstudio/res/icon/file-export-solid.svg" id="7_nk4o1"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider.gd" id="8_sqicj"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider_group.gd" id="9_nhwes"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_spring_bone.gd" id="10_vgdwl"]
@@ -1824,7 +1824,7 @@ grow_horizontal = 0
 grow_vertical = 0
 tooltip_text = "Export Animation"
 focus_mode = 0
-icon = ExtResource("5_sbbgc")
+icon = ExtResource("7_nk4o1")
 icon_alignment = 1
 expand_icon = true
 

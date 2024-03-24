@@ -9,7 +9,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "Spine": {
         "index": 2,
@@ -21,7 +21,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "Chest": {
         "index": 6,
@@ -33,7 +33,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "Neck": {
         "index": 8,
@@ -45,7 +45,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "Head": {
         "index": 10,
@@ -57,7 +57,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "LeftShoulder": {
         "index": 11,
@@ -69,7 +69,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "ZXY",
-        "on": true
+        "update": 2
     },
     "LeftUpperArm": {
         "index": 12,
@@ -81,7 +81,7 @@
         "inv_y": -1,
         "inv_z": -1,
         "order": "ZXY",
-        "on": true
+        "update": 2
     },
     "LeftLowerArm": {
         "index": 13,
@@ -93,7 +93,7 @@
         "inv_y": -1,
         "inv_z": 1,
         "order": "YXZ",
-        "on": true
+        "update": 2
     },
     "LeftHand": {
         "index": 14,
@@ -105,7 +105,7 @@
         "inv_y": -1,
         "inv_z": -1,
         "order": "ZXY",
-        "on": true
+        "update": 2
     },
     "RightShoulder": {
         "index": 15,
@@ -117,7 +117,7 @@
         "inv_y": 1,
         "inv_z": -1,
         "order": "ZXY",
-        "on": true
+        "update": 2
     },
     "RightUpperArm": {
         "index": 16,
@@ -129,7 +129,7 @@
         "inv_y": -1,
         "inv_z": 1,
         "order": "ZXY",
-        "on": true
+        "update": 2
     },
     "RightLowerArm": {
         "index": 17,
@@ -141,7 +141,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "YXZ",
-        "on": true
+        "update": 2
     },
     "RightHand": {
         "index": 18,
@@ -153,7 +153,7 @@
         "inv_y": -1,
         "inv_z": 1,
         "order": "ZXY",
-        "on": true
+        "update": 2
     },
     "LeftUpperLeg": {
         "index": 19,
@@ -165,7 +165,7 @@
         "inv_y": -1,
         "inv_z": 1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "LeftLowerLeg": {
         "index": 20,
@@ -177,7 +177,7 @@
         "inv_y": -1,
         "inv_z": -1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "LeftFoot": {
         "index": 21,
@@ -189,7 +189,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "XZY",
-        "on": true
+        "update": 2
     },
     "LeftToes": {
         "index": 22,
@@ -201,7 +201,7 @@
         "inv_y": 1,
         "inv_z": -1,
         "order": "XZY",
-        "on": true
+        "update": 2
     },
     "RightUpperLeg": {
         "index": 23,
@@ -213,7 +213,7 @@
         "inv_y": -1,
         "inv_z": 1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "RightLowerLeg": {
         "index": 24,
@@ -225,7 +225,7 @@
         "inv_y": -1,
         "inv_z": -1,
         "order": "XYZ",
-        "on": true
+        "update": 2
     },
     "RightFoot": {
         "index": 25,
@@ -237,7 +237,7 @@
         "inv_y": 1,
         "inv_z": 1,
         "order": "XZY",
-        "on": true
+        "update": 2
     },
     "RightToes": {
         "index": 26,
@@ -249,6 +249,6 @@
         "inv_y": 1,
         "inv_z": -1,
         "order": "XZY",
-        "on": true
+        "update": 2
     }
 }

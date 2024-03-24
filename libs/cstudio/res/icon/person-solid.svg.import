@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s2mvnw3ya5oj"
-path="res://.godot/imported/file-export-solid.svg-d280cdd6688fbf2eb4e8b306297309f6.ctex"
+uid="uid://d1p4cn0chctq7"
+path="res://.godot/imported/person-solid.svg-3c170aca689295140344b327fa51c8e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/icon/file-export-solid.svg"
-dest_files=["res://.godot/imported/file-export-solid.svg-d280cdd6688fbf2eb4e8b306297309f6.ctex"]
+source_file="res://libs/cstudio/res/icon/person-solid.svg"
+dest_files=["res://.godot/imported/person-solid.svg-3c170aca689295140344b327fa51c8e9.ctex"]
 
 [params]
 

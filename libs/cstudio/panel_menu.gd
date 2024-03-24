@@ -29,8 +29,11 @@ func _on_btn_listen_toggled(button_pressed):
     var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
     if o_mocopi == null: return
 
+    $spin_listen_port.editable = !button_pressed
+
     if button_pressed == true:
         $btn_listen.text = "Listening ..."
+        o_mocopi.receive_port = $spin_listen_port.value
         o_mocopi.listen()
     else:
         $btn_listen.text = "Listen"
@@ -64,3 +67,10 @@ func _on_file_dialog_file_selected(path):
 
 func _on_btn_show_ui_toggled(button_pressed):
     show_panel.emit(button_pressed)
+
+
+func _on_spin_box_value_changed(value):
+    var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
+    if o_mocopi == null: return
+
+    o_mocopi.receive_port = $spin_listen_port.value

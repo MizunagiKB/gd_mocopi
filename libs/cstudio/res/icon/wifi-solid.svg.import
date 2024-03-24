@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7osi10weoj7w"
-path="res://.godot/imported/pause-solid.svg-e84d7ab7406841f97c236231647aee95.ctex"
+uid="uid://kwhxsc7ib6a3"
+path="res://.godot/imported/wifi-solid.svg-58327d70035ceca6734ec56aaf2ee2eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/icon/pause-solid.svg"
-dest_files=["res://.godot/imported/pause-solid.svg-e84d7ab7406841f97c236231647aee95.ctex"]
+source_file="res://libs/cstudio/res/icon/wifi-solid.svg"
+dest_files=["res://.godot/imported/wifi-solid.svg-58327d70035ceca6734ec56aaf2ee2eb.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://b5uottao3u3gj"]
 
-[ext_resource type="Texture2D" uid="uid://7yfg0lbyxtps" path="res://res/icon/upload-solid.svg" id="1_3h0im"]
+[ext_resource type="Texture2D" uid="uid://7yfg0lbyxtps" path="res://libs/cstudio/res/icon/upload-solid.svg" id="1_3h0im"]
 [ext_resource type="Script" path="res://libs/cstudio/panel_menu.gd" id="1_xfplg"]
-[ext_resource type="Texture2D" uid="uid://bhwcy5es83p1e" path="res://res/icon/download-solid.svg" id="2_1cpfk"]
-[ext_resource type="Texture2D" uid="uid://cohythgt0fwk" path="res://res/icon/window-maximize-solid.svg" id="2_mg0wx"]
-[ext_resource type="Texture2D" uid="uid://kwhxsc7ib6a3" path="res://res/icon/wifi-solid.svg" id="3_vmt05"]
+[ext_resource type="Texture2D" uid="uid://bhwcy5es83p1e" path="res://libs/cstudio/res/icon/download-solid.svg" id="2_1cpfk"]
+[ext_resource type="Texture2D" uid="uid://cohythgt0fwk" path="res://libs/cstudio/res/icon/window-maximize-solid.svg" id="2_mg0wx"]
+[ext_resource type="Texture2D" uid="uid://kwhxsc7ib6a3" path="res://libs/cstudio/res/icon/wifi-solid.svg" id="3_vmt05"]
 
 [sub_resource type="Theme" id="Theme_vcaxt"]
 
@@ -18,6 +18,12 @@ grow_horizontal = 2
 theme = SubResource("Theme_vcaxt")
 script = ExtResource("1_xfplg")
 metadata/_edit_vertical_guides_ = [1136.0, 984.0, 848.0]
+metadata/_edit_lock_ = true
+
+[node name="FileDialog" type="FileDialog" parent="."]
+initial_position = 2
+size = Vector2i(640, 480)
+access = 2
 
 [node name="btn_show_panel" type="Button" parent="."]
 layout_mode = 0
@@ -51,29 +57,13 @@ text = "Param Save"
 icon = ExtResource("2_1cpfk")
 expand_icon = true
 
-[node name="btn_listen" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -144.0
-offset_right = -16.0
-offset_bottom = 32.0
-grow_horizontal = 0
-focus_mode = 0
-toggle_mode = true
-text = "Listen"
-icon = ExtResource("3_vmt05")
-icon_alignment = 2
-expand_icon = true
-
 [node name="lbl_bndt" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -568.0
-offset_right = -504.0
+offset_left = -664.0
+offset_right = -600.0
 offset_bottom = 32.0
 grow_horizontal = 0
 text = "bndt:"
@@ -93,8 +83,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -432.0
-offset_right = -368.0
+offset_left = -528.0
+offset_right = -464.0
 offset_bottom = 32.0
 grow_horizontal = 0
 text = "btdt:"
@@ -114,8 +104,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -296.0
-offset_right = -232.0
+offset_left = -392.0
+offset_right = -328.0
 offset_bottom = 32.0
 grow_horizontal = 0
 text = "Time:"
@@ -130,13 +120,38 @@ text = "648000.000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="FileDialog" type="FileDialog" parent="."]
-initial_position = 2
-size = Vector2i(640, 480)
-access = 2
+[node name="btn_listen" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_right = -112.0
+offset_bottom = 32.0
+grow_horizontal = 0
+focus_mode = 0
+toggle_mode = true
+text = "Listen"
+icon = ExtResource("3_vmt05")
+icon_alignment = 2
+expand_icon = true
 
+[node name="spin_listen_port" type="SpinBox" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_right = -16.0
+offset_bottom = 32.0
+grow_horizontal = 0
+max_value = 65535.0
+value = 12351.0
+alignment = 1
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="toggled" from="btn_show_panel" to="." method="_on_btn_show_ui_toggled"]
 [connection signal="pressed" from="btn_param_load" to="." method="_on_btn_param_load_pressed"]
 [connection signal="pressed" from="btn_param_save" to="." method="_on_btn_param_save_pressed"]
 [connection signal="toggled" from="btn_listen" to="." method="_on_btn_listen_toggled"]
-[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="value_changed" from="spin_listen_port" to="." method="_on_spin_box_value_changed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpbuu7suo5pxd"]
+[gd_scene load_steps=3 format=3 uid="uid://cpbuu7suo5pxd"]
 
 [ext_resource type="Script" path="res://libs/cstudio/panel_param.gd" id="1_ws70c"]
+[ext_resource type="Texture2D" uid="uid://c20i2rkkrly6n" path="res://libs/cstudio/res/icon/person-walking-solid.svg" id="2_2kedn"]
 
 [node name="panel_param" type="Control"]
 layout_mode = 3
@@ -114,18 +115,9 @@ offset_left = 16.0
 offset_top = 8.0
 offset_right = 144.0
 offset_bottom = 40.0
+placeholder_text = "XYZ"
 alignment = 1
 max_length = 3
-
-[node name="chk_on" type="CheckButton" parent="panel_bone"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 8.0
-offset_right = 240.0
-offset_bottom = 40.0
-focus_mode = 0
-text = "On"
-alignment = 2
 
 [node name="opt_mocopi_bone" type="OptionButton" parent="panel_bone"]
 layout_mode = 0
@@ -145,7 +137,21 @@ offset_right = 240.0
 offset_bottom = -8.0
 grow_vertical = 2
 
+[node name="btn_update" type="Button" parent="panel_bone"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 8.0
+offset_right = 240.0
+offset_bottom = 40.0
+focus_mode = 0
+icon = ExtResource("2_2kedn")
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="value_changed" from="panel_adjust/btn_x/sli" to="." method="_on_sli_x_value_changed"]
 [connection signal="value_changed" from="panel_adjust/btn_y/sli" to="." method="_on_sli_y_value_changed"]
 [connection signal="value_changed" from="panel_adjust/btn_z/sli" to="." method="_on_sli_z_value_changed"]
+[connection signal="text_changed" from="panel_bone/line_order" to="." method="_on_line_order_text_changed"]
+[connection signal="item_selected" from="panel_bone/opt_mocopi_bone" to="." method="_on_opt_mocopi_bone_item_selected"]
 [connection signal="item_selected" from="panel_bone/list_bone" to="." method="_on_list_bone_item_selected"]
+[connection signal="pressed" from="panel_bone/btn_update" to="." method="_on_btn_update_pressed"]

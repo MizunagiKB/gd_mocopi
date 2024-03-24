@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cohythgt0fwk"
-path="res://.godot/imported/window-maximize-solid.svg-c2ef41e56f93c34798132a66686603b5.ctex"
+uid="uid://bjcjun6xdn0lo"
+path="res://.godot/imported/person-running-solid.svg-031965c89611e86718c506f4fd0f2b1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/icon/window-maximize-solid.svg"
-dest_files=["res://.godot/imported/window-maximize-solid.svg-c2ef41e56f93c34798132a66686603b5.ctex"]
+source_file="res://libs/cstudio/res/icon/person-running-solid.svg"
+dest_files=["res://.godot/imported/person-running-solid.svg-031965c89611e86718c506f4fd0f2b1e.ctex"]
 
 [params]
 

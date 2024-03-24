@@ -4,10 +4,10 @@ extends Panel
 @export_node_path("GDMocopi") var mocopi_nodepath: NodePath
 
 
-var record_on = load("res://res/icon/video-solid.svg")
-var record_of = load("res://res/icon/clapperboard-solid.svg")
-var play_on = load("res://res/icon/play-solid.svg")
-var play_of = load("res://res/icon/pause-solid.svg")
+var record_on = load("res://libs/cstudio/res/icon/video-solid.svg")
+var record_of = load("res://libs/cstudio/res/icon/clapperboard-solid.svg")
+var play_on = load("res://libs/cstudio/res/icon/play-solid.svg")
+var play_of = load("res://libs/cstudio/res/icon/pause-solid.svg")
 var anim: Animation
 var anim_record_time: float
 

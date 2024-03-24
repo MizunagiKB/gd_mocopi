@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6os4um3453j2"
-path="res://.godot/imported/trash-solid.svg-58bb88b58e62bdef9e5bd88a23802687.ctex"
+uid="uid://cifpc158drakk"
+path="res://.godot/imported/video-solid.svg-23ce9886ee1a04379f9076c93ebf4c62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/icon/trash-solid.svg"
-dest_files=["res://.godot/imported/trash-solid.svg-58bb88b58e62bdef9e5bd88a23802687.ctex"]
+source_file="res://libs/cstudio/res/icon/video-solid.svg"
+dest_files=["res://.godot/imported/video-solid.svg-23ce9886ee1a04379f9076c93ebf4c62.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5fce7u63f6rw"
-path="res://.godot/imported/clapperboard-solid.svg-5c96df415821ab19493f52674338cf19.ctex"
+uid="uid://6os4um3453j2"
+path="res://.godot/imported/trash-solid.svg-bb0028d7e21cd496d6e02424ca2c8c61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/icon/clapperboard-solid.svg"
-dest_files=["res://.godot/imported/clapperboard-solid.svg-5c96df415821ab19493f52674338cf19.ctex"]
+source_file="res://libs/cstudio/res/icon/trash-solid.svg"
+dest_files=["res://.godot/imported/trash-solid.svg-bb0028d7e21cd496d6e02424ca2c8c61.ctex"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cjagx3eifs710" path="res://libs/gd_mocopi/preview_axis_mocopi.tscn" id="1_4majp"]
 [ext_resource type="Script" path="res://libs/cstudio/panel_anim.gd" id="1_ylido"]
-[ext_resource type="Texture2D" uid="uid://s2mvnw3ya5oj" path="res://res/icon/file-export-solid.svg" id="3_3n8cc"]
-[ext_resource type="Texture2D" uid="uid://6os4um3453j2" path="res://res/icon/trash-solid.svg" id="4_33x6u"]
+[ext_resource type="Texture2D" uid="uid://s2mvnw3ya5oj" path="res://libs/cstudio/res/icon/file-export-solid.svg" id="3_3n8cc"]
+[ext_resource type="Texture2D" uid="uid://6os4um3453j2" path="res://libs/cstudio/res/icon/trash-solid.svg" id="4_33x6u"]
 
 [sub_resource type="Environment" id="Environment_mq3ff"]
 ambient_light_source = 2

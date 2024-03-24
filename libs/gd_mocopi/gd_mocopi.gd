@@ -6,136 +6,140 @@ class_name GDMocopi
 @export_node_path("Skeleton3D") var skel_nodepath: NodePath
 
 const MOCOPI_BONE_COUNT: int = 27
+const PARAM_UPDATE_NONE: int = 0
+const PARAM_UPDATE_REST: int = 1
+const PARAM_UPDATE_POSE: int = 2
+
 const DEFAULT_MOCOPI_PARAM: Dictionary = {
     "Hips": {
         "index": 0, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "Spine": {
         "index": 2, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "Chest": {
         "index": 6, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "Neck": {
         "index": 8, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "Head": {
         "index": 10, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
 
     "LeftShoulder": {
         "index": 11, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": 1,
-        "order": "ZXY", "on": true
+        "order": "ZXY", "update": PARAM_UPDATE_POSE
     },
     "LeftUpperArm": {
         "index": 12, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
-        "order": "ZXY", "on": true
+        "order": "ZXY", "update": PARAM_UPDATE_POSE
     },
     "LeftLowerArm": {
         "index": 13, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": 1,
-        "order": "YXZ", "on": true
+        "order": "YXZ", "update": PARAM_UPDATE_POSE
     },
     "LeftHand": {
         "index": 14, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
-        "order": "ZXY", "on": true
+        "order": "ZXY", "update": PARAM_UPDATE_POSE
     },
 
     "RightShoulder": {
         "index": 15, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": -1,
-        "order": "ZXY", "on": true
+        "order": "ZXY", "update": PARAM_UPDATE_POSE
     },
     "RightUpperArm": {
         "index": 16, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
-        "order": "ZXY", "on": true
+        "order": "ZXY", "update": PARAM_UPDATE_POSE
     },
     "RightLowerArm": {
         "index": 17, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": 1,
-        "order": "YXZ", "on": true
+        "order": "YXZ", "update": PARAM_UPDATE_POSE
     },
     "RightHand": {
         "index": 18, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
-        "order": "ZXY", "on": true
+        "order": "ZXY", "update": PARAM_UPDATE_POSE
     },
 
     "LeftUpperLeg": {
         "index": 19, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "LeftLowerLeg": {
         "index": 20, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "LeftFoot": {
         "index": 21, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": 1,
-        "order": "XZY", "on": true
+        "order": "XZY", "update": PARAM_UPDATE_POSE
     },
     "LeftToes": {
         "index": 22, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": -1,
-        "order": "XZY", "on": true
+        "order": "XZY", "update": PARAM_UPDATE_POSE
     },
 
     "RightUpperLeg": {
         "index": 23, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": -1, "inv_z": 1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "RightLowerLeg": {
         "index": 24, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": -1, "inv_z": -1,
-        "order": "XYZ", "on": true
+        "order": "XYZ", "update": PARAM_UPDATE_POSE
     },
     "RightFoot": {
         "index": 25, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": -1, "inv_y": 1, "inv_z": 1,
-        "order": "XZY", "on": true
+        "order": "XZY", "update": PARAM_UPDATE_POSE
     },
     "RightToes": {
         "index": 26, "ref": [],
         "x": 0, "y": 0, "z": 0,
         "inv_x": 1, "inv_y": 1, "inv_z": -1,
-        "order": "XZY", "on": true
+        "order": "XZY", "update": PARAM_UPDATE_POSE
     }
 }
 
@@ -290,23 +294,27 @@ func skel_update():
         if bndt.pbid == -1:
             skel.set_bone_pose_position(bone_index, btdt.vct3)
 
-        if mocopi_param.on == true:
-            var qx: Quaternion = Quaternion(Vector3(1.0, 0.0, 0.0), deg_to_rad(mocopi_param.x))
-            var qy: Quaternion = Quaternion(Vector3(0.0, 1.0, 0.0), deg_to_rad(mocopi_param.y))
-            var qz: Quaternion = Quaternion(Vector3(0.0, 0.0, 1.0), deg_to_rad(mocopi_param.z))
-            var quat_remap: Quaternion = quaternion_calc(
-                btdt,
-                mocopi_param.order,
-                mocopi_param.inv_x,
-                mocopi_param.inv_y,
-                mocopi_param.inv_z
-            )
+        match int(mocopi_param.update):
+            PARAM_UPDATE_NONE:
+                pass
+            PARAM_UPDATE_REST:
+                skel.set_bone_pose_rotation(bone_index, quat_calc)
+            PARAM_UPDATE_POSE:
+                var qx: Quaternion = Quaternion(Vector3(1.0, 0.0, 0.0), deg_to_rad(mocopi_param.x))
+                var qy: Quaternion = Quaternion(Vector3(0.0, 1.0, 0.0), deg_to_rad(mocopi_param.y))
+                var qz: Quaternion = Quaternion(Vector3(0.0, 0.0, 1.0), deg_to_rad(mocopi_param.z))
+                var quat_remap: Quaternion = quaternion_calc(
+                    btdt,
+                    mocopi_param.order,
+                    mocopi_param.inv_x,
+                    mocopi_param.inv_y,
+                    mocopi_param.inv_z
+                )
 
-            for i in mocopi_param.ref:
-                quat_calc *= ary_btdt[i].quat
-            quat_calc = quat_calc * qx * qy * qz * quat_remap
-
-        skel.set_bone_pose_rotation(bone_index, quat_calc)
+                for i in mocopi_param.ref:
+                    quat_calc *= ary_btdt[i].quat
+                quat_calc = quat_calc * qx * qy * qz * quat_remap
+                skel.set_bone_pose_rotation(bone_index, quat_calc)
 
         ary_mocopi_animation.push_back(
             VRMPose.new(

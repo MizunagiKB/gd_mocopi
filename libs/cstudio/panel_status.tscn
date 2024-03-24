@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://18iywd4c8jr6"]
 
-[ext_resource type="Texture2D" uid="uid://c0v2ywg47fv1d" path="res://res/icon/play-solid.svg" id="1_55h38"]
+[ext_resource type="Texture2D" uid="uid://c0v2ywg47fv1d" path="res://libs/cstudio/res/icon/play-solid.svg" id="1_55h38"]
 [ext_resource type="Script" path="res://libs/cstudio/panel_status.gd" id="1_m3lpx"]
-[ext_resource type="Texture2D" uid="uid://cifpc158drakk" path="res://res/icon/video-solid.svg" id="2_31rg6"]
+[ext_resource type="Texture2D" uid="uid://cifpc158drakk" path="res://libs/cstudio/res/icon/video-solid.svg" id="2_31rg6"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mbqnl"]
 
