@@ -28,25 +28,74 @@ link:index{adocsuffix}[Japanese] / English
 endif::env-github,env-vscode[]
 
 
-== 使用方法
+== GDMocopiの使い方
 
-GDMocopiを利用するには以下のものが必要となります。
+_GDMocopi_ を利用するには以下のものが必要となります。
 
 * Godot Engine（4.1 以上）
 * link:https://www.sony.jp/mocopi/[SONY mocopi]
 ** mocopi
-** link:https://play.google.com/store/apps/details?id=com.sony.mocopi[android向けのandroidアプリ] または link:https://apps.apple.com/jp/app/id6444393701?mt=8[iOS向けのmocopiアプリ]
+** link:https://play.google.com/store/apps/details?id=com.sony.mocopi[android向けのmocopiアプリ] または link:https://apps.apple.com/jp/app/id6444393701?mt=8[iOS向けのmocopiアプリ]
 
-
+NOTE: SONY mocopi を所有していない場合 +
 mocopi本体を所有していない場合は、link:https://www.sony.net/Products/mocopi-dev/jp/[デベロッパーサイト]から BVH Sender を入手することで、擬似的に mocopi からの送信を作り出す事が出来ます。
 
 
-=== プロジェクトの作成
+=== mocopi を使える様にする
 
-この説明はGodot Engineの知識をお持ちであることを前提に説明をしています。
+==== プロジェクトの作成
 
-Godot Engine本体についてはGodot Engineのlink:https://docs.godotengine.org/ja/4.x/index.html[ドキュメント]を参照してください。
+> この説明は _Godot Engine_ の知識をお持ちであることを前提に説明をしています。
+_Godot Engine_ 本体については _Godot Engine_ のlink:https://docs.godotengine.org/ja/4.x/index.html[ドキュメント]を参照してください。
+
+まずは新規にプロジェクトを立ち上げて、空のプロジェクトを用意してください。
 
 
-まず、
+==== GDMocopi 関連のファイルをコピー
+
+次に gd_mocopi プロジェクトから、 libs 以下のファイルを全てコピーしてください。コピーはエクスプローラーやファインダーで行ってもよいですが、Godot Engine のプロジェクトが開いている状態であれば、 libs フォルダをドロップするだけでもコピー出来ます。
+
+
+==== Scene の作成
+
+コピーが完了したら、 3D Sceene を選択してシーンの作成を開始してください。
+
+Node3Dに以下の三つのノードを追加してください。
+
+- GDMocopi
+- PreviewAxisMocopi
+- Camera3D
+
+
+設定が完了したら、プロジェクトを実行してみてください。
+
+うまくいけば、画面に mocopi から受け取った骨の情報が描画されるはずです。
+
+
+これで最低限の動作確認が行えました。
+
+
+=== mocopi で VRM を動かす
+
+ここまでの作業で mocopi から情報を取得出来ているはずです。
+
+次はこの取得した情報を VRM に割り当てて、キャラクターを動かしてみましょう。
+
+
+==== Godot Engine を VRM 対応にする
+
+ _AssetLib_ から _VRM Importer for 3D Avatars and MToon Shader_ をインストールしてください。
+
+インストールが完了した状態ではまだ Addons は有効になりませんので、次に Project Settings を開いて、 MToon Shader と VRM を有効にします。
+
+有効にしたら、プロジェクトを保存してから改めて開き直してください。
+
+これで、 VRM と MToon Shader が有効になった環境の準備が出来ました。
+
+
+=== シーンに VRM を追加して mocopi を割り当てる
+
+動かしたい VRM をシーンに追加します。
+
+特に動かしたいものがない場合は、Asset の追加時に一緒にダウンロードされた VRM を使用してください。
 

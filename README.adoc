@@ -72,5 +72,6 @@ https://fontawesome.com/
 
 * link:https://www.sony.net/Products/mocopi-dev/jp/[Mobile Motion Capture "mocopi" Developer Site]
 * link:https://github.com/seagetch/mcp-receiver[mcp-receiver(GitHub)]
-* link:https://github.com/V-Sekai/godot-vrm[VRM addon for Godot Engine]
+* link:https://github.com/vrm-c[VRM Consortium(GitHub)]
+* link:https://github.com/V-Sekai/godot-vrm[VRM addon for Godot Engine(GitHub)]
 * link:https://github.com/MizunagiKB/gd_mocopi[MizunagiKB / gd_mocopi (GitHub)]
