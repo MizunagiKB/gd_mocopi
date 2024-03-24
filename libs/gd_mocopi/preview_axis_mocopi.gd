@@ -4,6 +4,7 @@ class_name PreviewAxisMocopi
 
 @export var mat: StandardMaterial3D
 @export var axis_scale: Vector3 = Vector3(1.0, 1.0, 1.0)
+@export_node_path("GDMocopi") var mocopi_nodepath: NodePath
 
 
 var axis = load("res://libs/gd_mocopi/axis.tscn")
@@ -72,4 +73,6 @@ func _ready():
 
 
 func _process(_delta):
-    pass
+    if self.visible == true:
+        var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
+        self.preview(o_mocopi)

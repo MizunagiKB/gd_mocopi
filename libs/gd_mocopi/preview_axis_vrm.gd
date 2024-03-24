@@ -4,6 +4,7 @@ class_name PreviewAxisVRM
 
 @export var mat: StandardMaterial3D
 @export var axis_scale: Vector3 = Vector3(1.0, 1.0, 1.0)
+@export_node_path("GDMocopi") var mocopi_nodepath: NodePath
 
 
 var axis = load("res://libs/gd_mocopi/axis.tscn")
@@ -14,15 +15,18 @@ var ary_axis: Array[Node3D] = []
 
 func preview(o_mocopi: GDMocopi):
 
-    var skel: Skeleton3D = get_node(o_mocopi.skel_nodepath) as Skeleton3D
-    
-    if skel == null: return
-
     var im: Mesh = self.mesh
 
     im.clear_surfaces()
 
+    if o_mocopi == null: return
+    if o_mocopi.valid != true: return
+
     im.surface_begin(Mesh.PRIMITIVE_LINES, mat)
+
+    var skel: Skeleton3D = get_node(o_mocopi.skel_nodepath) as Skeleton3D
+    
+    if skel == null: return
 
     var n: int = 0
     for bone_name in o_mocopi.dict_param.keys():
@@ -63,4 +67,6 @@ func _ready():
 
 
 func _process(_delta):
-    pass
+    if self.visible == true:
+        var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
+        self.preview(o_mocopi)

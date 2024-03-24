@@ -57,14 +57,17 @@ func show_panel(show_order: bool):
 
 
 func _ready():
+    var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
+    if o_mocopi != null:
+        $panel_preview/SubViewportContainer/SubViewport/preview_axis_mocopi.mocopi_nodepath = o_mocopi.get_path()
+
     self.anim_reset()
+    
 
 
 func _process(_delta):
     var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
     if o_mocopi == null: return
-
-    $panel_preview/SubViewportContainer/SubViewport/preview_axis_mocopi.preview(o_mocopi)
 
 
 func _on_tree_take_gui_input(event):

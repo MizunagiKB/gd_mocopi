@@ -3,6 +3,7 @@ class_name GDMocopi
 
 
 @export var receive_port: int = 12351
+@export var auto_listen: bool = false
 @export_node_path("Skeleton3D") var skel_nodepath: NodePath
 
 const MOCOPI_BONE_COUNT: int = 27
@@ -550,6 +551,7 @@ func _decode(stream: StreamPeerBuffer) -> bool:
 
 func _ready():
     dict_param = DEFAULT_MOCOPI_PARAM
+    if self.auto_listen: self.listen()
 
 
 func _process(_delta):
