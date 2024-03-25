@@ -20,12 +20,11 @@ func preview(o_mocopi: GDMocopi):
     im.clear_surfaces()
 
     if o_mocopi == null: return
-    if o_mocopi.valid != true: return
+    #if o_mocopi.valid != true: return
 
     im.surface_begin(Mesh.PRIMITIVE_LINES, mat)
 
-    var skel: Skeleton3D = get_node(o_mocopi.skel_nodepath) as Skeleton3D
-    
+    var skel: Skeleton3D = o_mocopi.get_skeleton()
     if skel == null: return
 
     var n: int = 0

@@ -228,6 +228,10 @@ func param_save(param_pathname: String) -> bool:
     return true
 
 
+func get_skeleton() -> Skeleton3D:
+    return self.get_node_or_null(skel_nodepath) as Skeleton3D
+
+
 func quaternion_calc(btdt: GDMocopi.MocopiBtdt, order: String, inv_x: float, inv_y: float, inv_z: float) -> Quaternion:
     var src_q: Quaternion = btdt.quat
     var dst_q: Quaternion = Quaternion()
@@ -274,7 +278,7 @@ func quaternion_calc(btdt: GDMocopi.MocopiBtdt, order: String, inv_x: float, inv
 
 
 func skel_update():
-    var skel: Skeleton3D = get_node_or_null(skel_nodepath)
+    var skel: Skeleton3D = self.get_skeleton()
     if skel == null: return
 
     if valid == false: return

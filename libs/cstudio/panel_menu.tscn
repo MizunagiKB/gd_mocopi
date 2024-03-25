@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5uottao3u3gj"]
+[gd_scene load_steps=8 format=3 uid="uid://b5uottao3u3gj"]
 
 [ext_resource type="Texture2D" uid="uid://7yfg0lbyxtps" path="res://libs/cstudio/res/icon/upload-solid.svg" id="1_3h0im"]
 [ext_resource type="Script" path="res://libs/cstudio/panel_menu.gd" id="1_xfplg"]
 [ext_resource type="Texture2D" uid="uid://bhwcy5es83p1e" path="res://libs/cstudio/res/icon/download-solid.svg" id="2_1cpfk"]
 [ext_resource type="Texture2D" uid="uid://cohythgt0fwk" path="res://libs/cstudio/res/icon/window-maximize-solid.svg" id="2_mg0wx"]
 [ext_resource type="Texture2D" uid="uid://kwhxsc7ib6a3" path="res://libs/cstudio/res/icon/wifi-solid.svg" id="3_vmt05"]
+[ext_resource type="Texture2D" uid="uid://dpy20g5ugnyyg" path="res://libs/cstudio/res/icon/bone-solid.svg" id="6_htrdl"]
 
 [sub_resource type="Theme" id="Theme_vcaxt"]
 
@@ -37,10 +38,21 @@ icon = ExtResource("2_mg0wx")
 icon_alignment = 1
 expand_icon = true
 
-[node name="btn_param_load" type="Button" parent="."]
+[node name="btn_show_bone" type="Button" parent="."]
 layout_mode = 0
 offset_left = 80.0
-offset_right = 240.0
+offset_right = 136.0
+offset_bottom = 32.0
+focus_mode = 0
+toggle_mode = true
+icon = ExtResource("6_htrdl")
+icon_alignment = 1
+expand_icon = true
+
+[node name="btn_param_load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 144.0
+offset_right = 304.0
 offset_bottom = 31.0
 focus_mode = 0
 text = "Param Load"
@@ -49,8 +61,8 @@ expand_icon = true
 
 [node name="btn_param_save" type="Button" parent="."]
 layout_mode = 0
-offset_left = 248.0
-offset_right = 408.0
+offset_left = 312.0
+offset_right = 472.0
 offset_bottom = 32.0
 focus_mode = 0
 text = "Param Save"

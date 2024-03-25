@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://6xdwfcsl73sk"]
+[gd_scene load_steps=122 format=3 uid="uid://6xdwfcsl73sk"]
 
 [ext_resource type="Script" path="res://libs/gd_mocopi/gd_mocopi.gd" id="1_5ucu1"]
 [ext_resource type="PackedScene" uid="uid://b5uottao3u3gj" path="res://libs/cstudio/panel_menu.tscn" id="1_hk26i"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://sx1n0iawwhbi" path="res://libs/cstudio/panel_anim.tscn" id="6_321t2"]
 [ext_resource type="PackedScene" uid="uid://ytwcgfjj37k0" path="res://res/vrm/RAYNOS-chan-avatar_v1.0.3/VRM/RAYNOS-chan_1.0.2.vrm" id="7_ggvlw"]
 [ext_resource type="Texture2D" uid="uid://s2mvnw3ya5oj" path="res://libs/cstudio/res/icon/file-export-solid.svg" id="7_nk4o1"]
+[ext_resource type="PackedScene" uid="uid://bb7ldjtlnlmve" path="res://libs/gd_mocopi/preview_axis_vrm.tscn" id="8_invsv"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider.gd" id="8_sqicj"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_collider_group.gd" id="9_nhwes"]
 [ext_resource type="Script" path="res://addons/vrm/vrm_spring_bone.gd" id="10_vgdwl"]
@@ -1735,8 +1736,13 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 volumetric_fog_density = 0.0396
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwdgb"]
-albedo_color = Color(0.12549, 0.12549, 0.12549, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys70i"]
+albedo_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_d627e"]
+material = SubResource("StandardMaterial3D_ys70i")
+size = Vector2(100, 100)
+orientation = 1
 
 [node name="cstudio" type="Control"]
 layout_mode = 3
@@ -1830,6 +1836,10 @@ expand_icon = true
 
 [node name="scene" type="Node3D" parent="."]
 
+[node name="preview_axis_vrm" parent="scene" instance=ExtResource("8_invsv")]
+visible = false
+mocopi_nodepath = NodePath("../../GDMocopi")
+
 [node name="RAYNOS" parent="scene" instance=ExtResource("7_ggvlw")]
 spring_bones = Array[ExtResource("10_vgdwl")]([SubResource("Resource_vg3j2"), SubResource("Resource_rut80"), SubResource("Resource_n12m7"), SubResource("Resource_0jq35"), SubResource("Resource_ieb8o"), SubResource("Resource_m8nht"), SubResource("Resource_6i1an"), SubResource("Resource_6k4v8"), SubResource("Resource_xi2rh"), SubResource("Resource_3axg2"), SubResource("Resource_js5r8"), SubResource("Resource_ufhqe"), SubResource("Resource_o7sl5"), SubResource("Resource_7f23o"), SubResource("Resource_idb8i"), SubResource("Resource_ffime"), SubResource("Resource_wewj7"), SubResource("Resource_phnqe"), SubResource("Resource_kt6vr"), SubResource("Resource_h37j3"), SubResource("Resource_tlayu"), SubResource("Resource_6xmya"), SubResource("Resource_dcwkr"), SubResource("Resource_31t4p"), SubResource("Resource_6nd8w"), SubResource("Resource_iu2yf"), SubResource("Resource_3rqyi"), SubResource("Resource_14ehx"), SubResource("Resource_n803t"), SubResource("Resource_qgbdf"), SubResource("Resource_x03x8"), SubResource("Resource_72h04"), SubResource("Resource_kyp3v"), SubResource("Resource_qmheq"), SubResource("Resource_7lvly"), SubResource("Resource_mdugu"), SubResource("Resource_p7s35"), SubResource("Resource_7h658"), SubResource("Resource_5ovwo"), SubResource("Resource_0ioor"), SubResource("Resource_ax8q1"), SubResource("Resource_a5iqf"), SubResource("Resource_gfaqj"), SubResource("Resource_mkoin"), SubResource("Resource_71kyo"), SubResource("Resource_ocwc7"), SubResource("Resource_duyt7"), SubResource("Resource_cuv8d"), SubResource("Resource_6r8d5"), SubResource("Resource_3w7w3"), SubResource("Resource_b8o6h"), SubResource("Resource_4t7cn"), SubResource("Resource_g75kp"), SubResource("Resource_65cmg"), SubResource("Resource_0qxdi"), SubResource("Resource_rkal8"), SubResource("Resource_6lijv"), SubResource("Resource_notnn"), SubResource("Resource_ma5t4"), SubResource("Resource_78wno"), SubResource("Resource_60mfc"), SubResource("Resource_hu5hx"), SubResource("Resource_6aa3y"), SubResource("Resource_26naw"), SubResource("Resource_386rw"), SubResource("Resource_jxy8j"), SubResource("Resource_v6smv"), SubResource("Resource_pnm68"), SubResource("Resource_cuikc"), SubResource("Resource_dcabc"), SubResource("Resource_em84y"), SubResource("Resource_ex4ay"), SubResource("Resource_5qlha"), SubResource("Resource_q1j05"), SubResource("Resource_oeknj"), SubResource("Resource_7q64w")])
 collider_groups = Array[ExtResource("9_nhwes")]([SubResource("Resource_7w57v"), SubResource("Resource_plc6t"), SubResource("Resource_8k78f"), SubResource("Resource_2adqb"), SubResource("Resource_kmdkd"), SubResource("Resource_u724k"), SubResource("Resource_vxwjt"), SubResource("Resource_82pnx")])
@@ -1862,7 +1872,7 @@ collider_groups = Array[ExtResource("9_nhwes")]([SubResource("Resource_7w57v"), 
 collider_library = Array[ExtResource("8_sqicj")]([SubResource("Resource_ygloy"), SubResource("Resource_adnrx"), SubResource("Resource_0kb74"), SubResource("Resource_jbaf1"), SubResource("Resource_1hkp7"), SubResource("Resource_ehmig"), SubResource("Resource_chd73"), SubResource("Resource_j5vat"), SubResource("Resource_ccsx8"), SubResource("Resource_jrnh6"), SubResource("Resource_7j7dc"), SubResource("Resource_2im88"), SubResource("Resource_bhgk1"), SubResource("Resource_v8sjg"), SubResource("Resource_qiv67"), SubResource("Resource_jlmw1"), SubResource("Resource_p3oo3"), SubResource("Resource_atapi"), SubResource("Resource_dybfp"), SubResource("Resource_t4b4v"), SubResource("Resource_6v1ue"), SubResource("Resource_gttf1")])
 
 [node name="cam" type="Camera3D" parent="scene"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 4)
 current = true
 fov = 40.0
 far = 1024.0
@@ -1870,10 +1880,8 @@ far = 1024.0
 [node name="env" type="WorldEnvironment" parent="scene"]
 environment = SubResource("Environment_hgrpv")
 
-[node name="floor" type="CSGBox3D" parent="scene"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.6, 2.08165e-12)
-material_override = SubResource("StandardMaterial3D_pwdgb")
-size = Vector3(100, 1, 100)
+[node name="floor" type="CSGMesh3D" parent="scene"]
+mesh = SubResource("QuadMesh_d627e")
 
 [editable path="ui/panel_menu"]
 [editable path="ui/panel_status"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://sx1n0iawwhbi"]
+[gd_scene load_steps=9 format=3 uid="uid://sx1n0iawwhbi"]
 
 [ext_resource type="PackedScene" uid="uid://cjagx3eifs710" path="res://libs/gd_mocopi/preview_axis_mocopi.tscn" id="1_4majp"]
 [ext_resource type="Script" path="res://libs/cstudio/panel_anim.gd" id="1_ylido"]
@@ -12,8 +12,13 @@ ambient_light_color = Color(1, 1, 1, 1)
 [sub_resource type="World3D" id="World3D_q8ifs"]
 environment = SubResource("Environment_mq3ff")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sq0u5"]
-albedo_color = Color(0.12549, 0.12549, 0.12549, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jx8f"]
+albedo_color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q14hx"]
+material = SubResource("StandardMaterial3D_5jx8f")
+size = Vector2(100, 100)
+orientation = 1
 
 [node name="panel_anim" type="Control"]
 layout_mode = 3
@@ -73,10 +78,8 @@ current = true
 fov = 45.0
 far = 1024.0
 
-[node name="floor" type="CSGBox3D" parent="panel_preview/SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, -0.6, 2.08165e-12)
-material_override = SubResource("StandardMaterial3D_sq0u5")
-size = Vector3(100, 1, 100)
+[node name="floor" type="CSGMesh3D" parent="panel_preview/SubViewportContainer/SubViewport"]
+mesh = SubResource("QuadMesh_q14hx")
 
 [node name="panel_take_lib" type="Panel" parent="."]
 layout_mode = 1
