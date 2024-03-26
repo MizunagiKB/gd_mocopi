@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cud8m00ci4l61"]
+
+[ext_resource type="Script" path="res://libs/gd_mocopi/gd_mocopi.gd" id="2_t07mp"]
+[ext_resource type="Script" path="res://libs/gd_mocopi/preview_axis_mocopi.gd" id="3_4uflo"]
+
+[node name="example_1" type="Node3D"]
+
+[node name="GDMocopi" type="Node" parent="."]
+script = ExtResource("2_t07mp")
+auto_listen = true
+
+[node name="PreviewAxisMocopi" type="MeshInstance3D" parent="."]
+script = ExtResource("3_4uflo")
+mocopi_nodepath = NodePath("../GDMocopi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2)

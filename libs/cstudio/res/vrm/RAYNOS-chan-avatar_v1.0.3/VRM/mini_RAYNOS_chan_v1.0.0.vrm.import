@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://doxd7x4e4fd2b"
-path="res://.godot/imported/mini_RAYNOS_chan_v1.0.0.vrm-aa3f685bfed0f14349860763237a98aa.scn"
+path="res://.godot/imported/mini_RAYNOS_chan_v1.0.0.vrm-0e03314e18ed83f30499e3c41e8447cb.scn"
 
 [deps]
 
-source_file="res://res/vrm/RAYNOS-chan-avatar_v1.0.3/VRM/mini_RAYNOS_chan_v1.0.0.vrm"
-dest_files=["res://.godot/imported/mini_RAYNOS_chan_v1.0.0.vrm-aa3f685bfed0f14349860763237a98aa.scn"]
+source_file="res://libs/cstudio/res/vrm/RAYNOS-chan-avatar_v1.0.3/VRM/mini_RAYNOS_chan_v1.0.0.vrm"
+dest_files=["res://.godot/imported/mini_RAYNOS_chan_v1.0.0.vrm-0e03314e18ed83f30499e3c41e8447cb.scn"]
 
 [params]
 

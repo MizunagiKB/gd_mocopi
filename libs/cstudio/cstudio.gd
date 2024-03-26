@@ -78,4 +78,4 @@ func _input(event):
 
 func _process(_delta):
     $scene/preview_axis_vrm.visible = $ui/panel_menu/btn_show_bone.button_pressed
-    $scene/RAYNOS.visible = !$ui/panel_menu/btn_show_bone.button_pressed
+    $"scene/RAYNOS-chan_1_0_2".visible = !$ui/panel_menu/btn_show_bone.button_pressed

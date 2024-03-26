@@ -183,7 +183,7 @@ class VRMPose:
 signal vrm_pose_update(time: float, ary_mocopi_animation: Array[VRMPose])
 
 
-var receiver := UDPServer.new()
+var receiver: UDPServer
 var vrsn: int
 var fnum: int
 var time: float
@@ -339,7 +339,8 @@ func listen():
     valid_btdt = false
     bndt_count = 0
     btdt_count = 0
-    receiver.listen(receive_port)
+    self.receiver = UDPServer.new()
+    self.receiver.listen(self.receive_port)
 
 
 func stop():
@@ -559,16 +560,16 @@ func _ready():
 
 
 func _process(_delta):
+    if self.receiver == null: return
 
-    receiver.poll()
+    self.receiver.poll()
 
-    if receiver.is_connection_available() == true:
-        var peer: PacketPeerUDP = receiver.take_connection()
+    if self.receiver.is_connection_available() == true:
+        var peer: PacketPeerUDP = self.receiver.take_connection()
         var stream: StreamPeerBuffer = StreamPeerBuffer.new()
 
         stream.data_array = peer.get_packet()
 
         _decode(stream)
 
-    if receiver.is_listening():
-        skel_update()
+    skel_update()
