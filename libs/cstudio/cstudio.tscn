@@ -1871,8 +1871,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115401, 1.27601, 0.032089
 collider_groups = Array[ExtResource("9_nhwes")]([SubResource("Resource_7w57v"), SubResource("Resource_plc6t"), SubResource("Resource_8k78f"), SubResource("Resource_2adqb"), SubResource("Resource_kmdkd"), SubResource("Resource_u724k"), SubResource("Resource_vxwjt"), SubResource("Resource_82pnx")])
 collider_library = Array[ExtResource("8_sqicj")]([SubResource("Resource_ygloy"), SubResource("Resource_adnrx"), SubResource("Resource_0kb74"), SubResource("Resource_jbaf1"), SubResource("Resource_1hkp7"), SubResource("Resource_ehmig"), SubResource("Resource_chd73"), SubResource("Resource_j5vat"), SubResource("Resource_ccsx8"), SubResource("Resource_jrnh6"), SubResource("Resource_7j7dc"), SubResource("Resource_2im88"), SubResource("Resource_bhgk1"), SubResource("Resource_v8sjg"), SubResource("Resource_qiv67"), SubResource("Resource_jlmw1"), SubResource("Resource_p3oo3"), SubResource("Resource_atapi"), SubResource("Resource_dybfp"), SubResource("Resource_t4b4v"), SubResource("Resource_6v1ue"), SubResource("Resource_gttf1")])
 
-[node name="cam" type="Camera3D" parent="scene"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 4)
+[node name="cam_target" type="Marker3D" parent="scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1, 2.08165e-12)
+
+[node name="cam" type="Camera3D" parent="scene/cam_target"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 4)
 current = true
 fov = 40.0
 far = 1024.0
