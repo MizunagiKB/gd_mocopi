@@ -1,7 +1,10 @@
 extends Control
 
-const CAM_ANGLE_LIMIT_MIN: float = -60.0
-const CAM_ANGLE_LIMIT_MAX: float = 60.0
+const CAM_ANGLE_MIN: float = -60.0
+const CAM_ANGLE_MAX: float = 60.0
+const CAM_DISTANCE_MIN: float = 1.0
+const CAM_DISTANCE_MAX: float = 10.0
+const ANIMATION_LIB_NAME: String = "Tales"
 
 var vct_camera_rot: Vector3 = Vector3.ZERO
 
@@ -11,8 +14,10 @@ var kb_shift: bool = false
 
 func _ready():
 
+    get_window().min_size = Vector2i(960, 480)
+
     $ui/panel_status.anim_create.connect($ui/panel_anim.anim_append)
-    $ui/panel_status/AnimationPlayer.add_animation_library("VRM", $ui/panel_anim.anim_lib)
+    $ui/panel_status/AnimationPlayer.add_animation_library(ANIMATION_LIB_NAME, $ui/panel_anim.anim_lib)
 
     $ui/panel_anim.anim_selected.connect($ui/panel_status.anim_play)
     $ui/panel_anim.anim_lib_reseted.connect($ui/panel_status.anim_reset)
@@ -35,9 +40,15 @@ func _input(event):
             MOUSE_BUTTON_MIDDLE:
                 self.mb_m = event.is_pressed()
             MOUSE_BUTTON_WHEEL_UP:
-                $scene/cam_target/cam.position.z = clamp($scene/cam_target/cam.position.z - 1, 1, 10)
+                $scene/cam_target/cam.position.z = clamp(
+                    $scene/cam_target/cam.position.z - 0.2,
+                    CAM_DISTANCE_MIN, CAM_DISTANCE_MAX
+                )
             MOUSE_BUTTON_WHEEL_DOWN:
-                $scene/cam_target/cam.position.z = clamp($scene/cam_target/cam.position.z + 1, 1, 10)
+                $scene/cam_target/cam.position.z = clamp(
+                    $scene/cam_target/cam.position.z + 0.2,
+                    CAM_DISTANCE_MIN, CAM_DISTANCE_MAX
+                )
 
     elif event is InputEventMouseMotion:
         if self.mb_m == true:
@@ -49,8 +60,8 @@ func _input(event):
                 self.vct_camera_rot.y -= (event.relative.y)
                 self.vct_camera_rot.y = clamp(
                     self.vct_camera_rot.y - event.relative.y,
-                    CAM_ANGLE_LIMIT_MIN,
-                    CAM_ANGLE_LIMIT_MAX
+                    CAM_ANGLE_MIN,
+                    CAM_ANGLE_MAX
                 )
 
                 var basis: Basis = Basis()
