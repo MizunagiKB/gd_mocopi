@@ -77,6 +77,7 @@ func _on_tree_take_gui_input(event):
         if event.button_index == MOUSE_BUTTON_RIGHT:
             $PopupMenu.position = event.global_position
             $PopupMenu.show()
+            accept_event()
 
 
 func _on_file_dialog_file_selected(path):
@@ -88,7 +89,7 @@ func _on_tree_take_item_selected():
     var item: TreeItem = $panel_take_lib/tree_take.get_selected()
     if item != null:
         var animation: String = item.get_text(0)
-        anim_selected.emit(animation)
+        anim_selected.emit("Takes/" + animation)
 
 
 func _on_btn_export_pressed():
@@ -99,8 +100,6 @@ func _on_btn_export_pressed():
 
 func _on_btn_trash_pressed():
     self.anim_reset()
-
-
 
 
 func _on_popup_menu_id_pressed(_id):

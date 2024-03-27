@@ -54,23 +54,23 @@ expand_icon = true
 [node name="btn_param_load" type="Button" parent="."]
 layout_mode = 0
 offset_left = 144.0
-offset_right = 304.0
+offset_right = 200.0
 offset_bottom = 31.0
 tooltip_text = "Load GDMocopi parameters"
 focus_mode = 0
-text = "Param Load"
 icon = ExtResource("1_3h0im")
+icon_alignment = 1
 expand_icon = true
 
 [node name="btn_param_save" type="Button" parent="."]
 layout_mode = 0
-offset_left = 312.0
-offset_right = 472.0
+offset_left = 208.0
+offset_right = 264.0
 offset_bottom = 32.0
 tooltip_text = "Save GDMocopi parameters"
 focus_mode = 0
-text = "Param Save"
 icon = ExtResource("2_1cpfk")
+icon_alignment = 1
 expand_icon = true
 
 [node name="lbl_bndt" type="Label" parent="."]

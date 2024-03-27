@@ -166,6 +166,8 @@ class MocopiBtdt:
     var bnid: int
     var quat: Quaternion
     var vct3: Vector3
+    func _init(_bnid: int):
+        self.bnid = _bnid
 
 class VRMPose:
     var bnid: int
@@ -234,8 +236,7 @@ func get_skeleton() -> Skeleton3D:
     return self.get_node_or_null(skel_nodepath) as Skeleton3D
 
 
-func quaternion_calc(btdt: GDMocopi.MocopiBtdt, order: String, inv_x: float, inv_y: float, inv_z: float) -> Quaternion:
-    var src_q: Quaternion = btdt.quat
+func quaternion_calc(src_q: Quaternion, order: String, inv_x: float, inv_y: float, inv_z: float) -> Quaternion:
     var dst_q: Quaternion = Quaternion()
 
     dst_q.w = src_q.w
@@ -283,7 +284,7 @@ func skel_update():
     var skel: Skeleton3D = self.get_skeleton()
     if skel == null: return
 
-    if valid == false: return
+    if self.valid == false: return
 
     var ary_mocopi_animation: Array[VRMPose] = []
 
@@ -292,14 +293,15 @@ func skel_update():
         if bone_index == -1: continue
 
         var mocopi_param: Dictionary = dict_param[bone_name]
-        var bndt: GDMocopi.MocopiBndt = ary_bndt[mocopi_param.index]
-        var btdt: GDMocopi.MocopiBtdt = ary_btdt[mocopi_param.index]
+        var bndt: GDMocopi.MocopiBndt = self.ary_bndt[mocopi_param.index]
+        var btdt: GDMocopi.MocopiBtdt = self.ary_btdt[mocopi_param.index]
 
         var tform_rest: Transform3D = skel.get_bone_rest(bone_index)
         var quat_calc: Quaternion = Quaternion(tform_rest.basis)
+        var vct3_calc: Vector3 = btdt.vct3
 
         if bndt.pbid == -1:
-            skel.set_bone_pose_position(bone_index, btdt.vct3)
+            skel.set_bone_pose_position(bone_index, vct3_calc)
 
         match int(mocopi_param.update):
             PARAM_UPDATE_NONE:
@@ -311,7 +313,7 @@ func skel_update():
                 var qy: Quaternion = Quaternion(Vector3(0.0, 1.0, 0.0), deg_to_rad(mocopi_param.y))
                 var qz: Quaternion = Quaternion(Vector3(0.0, 0.0, 1.0), deg_to_rad(mocopi_param.z))
                 var quat_remap: Quaternion = quaternion_calc(
-                    btdt,
+                    btdt.quat,
                     mocopi_param.order,
                     mocopi_param.inv_x,
                     mocopi_param.inv_y,
@@ -329,7 +331,7 @@ func skel_update():
                 bndt.pbid,
                 bone_name,
                 quat_calc,
-                btdt.vct3
+                vct3_calc
             )
         )
 
@@ -512,9 +514,8 @@ func _decode_btrs(stream: StreamPeerBuffer) -> bool:
         size = btrs_stream.get_u32()
         if btrs_stream.get_string(4) != "btdt": return valid_btdt
 
-        var o: MocopiBtdt = MocopiBtdt.new()
-
-        o.bnid = _parse_s16(btrs_stream, "bnid")
+        var bnid: int = _parse_s16(btrs_stream, "bnid")
+        var o: MocopiBtdt = MocopiBtdt.new(bnid)
 
         size = btrs_stream.get_u32()
         if btrs_stream.get_string(4) != "tran": return valid_btdt
@@ -558,11 +559,17 @@ func _decode(stream: StreamPeerBuffer) -> bool:
 
 func _ready():
     dict_param = DEFAULT_MOCOPI_PARAM
+
+    self.ary_btdt.clear()
+    for i in range(MOCOPI_BONE_COUNT):
+        self.ary_btdt.append(MocopiBtdt.new(i))
+
     if self.auto_listen: self.listen()
 
 
 func _process(_delta):
     if self.receiver == null: return
+    if self.receiver.is_listening() == false: return
 
     self.receiver.poll()
 

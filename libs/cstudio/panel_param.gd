@@ -55,6 +55,10 @@ func _process(_delta):
     $panel_bone/opt_mocopi_bone.disabled = !ui_enable
 
 
+func _gui_input(_event):
+    accept_event()
+
+
 func _on_ui_update():
     var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
 

@@ -1,12 +1,18 @@
 # SPDX-License-Identifier: MIT
 # SPDX-FileCopyrightText: 2024 MizunagiKB <mizukb@live.jp>
+
+# VRM モデルを差し替える場は以下も合わせて変更
+# - cstudio.gd の _process
+# - panel_status/AnimationPlayer の root_node
+# - VRM の Skeleton3D に適用されている motion_scale（1.0以外の場合があります）
+
 extends Control
 
 const CAM_ANGLE_MIN: float = -60.0
 const CAM_ANGLE_MAX: float = 60.0
 const CAM_DISTANCE_MIN: float = 1.0
 const CAM_DISTANCE_MAX: float = 10.0
-const ANIMATION_LIB_NAME: String = "Tales"
+const ANIMATION_LIB_NAME: String = "Takes"
 
 var vct_camera_rot: Vector3 = Vector3.ZERO
 
@@ -21,15 +27,19 @@ func _ready():
     $ui/panel_status.anim_create.connect($ui/panel_anim.anim_append)
     $ui/panel_status/AnimationPlayer.add_animation_library(ANIMATION_LIB_NAME, $ui/panel_anim.anim_lib)
 
-    $ui/panel_anim.anim_selected.connect($ui/panel_status.anim_play)
+    $ui/panel_anim.anim_selected.connect($ui/panel_status.anim_select)
     $ui/panel_anim.anim_lib_reseted.connect($ui/panel_status.anim_reset)
 
     $ui/panel_menu.show_panel.connect($ui/panel_param.show_panel)
     $ui/panel_menu.show_panel.connect($ui/panel_anim.show_panel)
 
 
-func _input(event):
+func _process(_delta):
+    $scene/preview_axis_vrm.visible = $ui/panel_menu/btn_show_bone.button_pressed
+    $"scene/RAYNOS-chan_1_0_2".visible = !$ui/panel_menu/btn_show_bone.button_pressed
 
+
+func _input(event):
     var slide_x: float = 0.0
     var slide_y: float = 0.0
 
@@ -41,16 +51,6 @@ func _input(event):
         match event.button_index:
             MOUSE_BUTTON_MIDDLE:
                 self.mb_m = event.is_pressed()
-            MOUSE_BUTTON_WHEEL_UP:
-                $scene/cam_target/cam.position.z = clamp(
-                    $scene/cam_target/cam.position.z - 0.2,
-                    CAM_DISTANCE_MIN, CAM_DISTANCE_MAX
-                )
-            MOUSE_BUTTON_WHEEL_DOWN:
-                $scene/cam_target/cam.position.z = clamp(
-                    $scene/cam_target/cam.position.z + 0.2,
-                    CAM_DISTANCE_MIN, CAM_DISTANCE_MAX
-                )
 
     elif event is InputEventMouseMotion:
         if self.mb_m == true:
@@ -78,6 +78,16 @@ func _input(event):
     $scene/cam_target.position += Vector3.UP * slide_y
 
 
-func _process(_delta):
-    $scene/preview_axis_vrm.visible = $ui/panel_menu/btn_show_bone.button_pressed
-    $"scene/RAYNOS-chan_1_0_2".visible = !$ui/panel_menu/btn_show_bone.button_pressed
+func _gui_input(event):
+    if event is InputEventMouseButton:
+        match event.button_index:
+            MOUSE_BUTTON_WHEEL_UP:
+                $scene/cam_target/cam.position.z = clamp(
+                    $scene/cam_target/cam.position.z - 0.2,
+                    CAM_DISTANCE_MIN, CAM_DISTANCE_MAX
+                )
+            MOUSE_BUTTON_WHEEL_DOWN:
+                $scene/cam_target/cam.position.z = clamp(
+                    $scene/cam_target/cam.position.z + 0.2,
+                    CAM_DISTANCE_MIN, CAM_DISTANCE_MAX
+                )

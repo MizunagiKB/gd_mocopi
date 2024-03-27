@@ -27,6 +27,10 @@ func _process(_delta):
     $lbl_time/value.text = "%.3f" % [o_mocopi.time]
 
 
+func _gui_input(_event):
+    accept_event()
+
+
 func _on_btn_listen_toggled(button_pressed):
     var o_mocopi: GDMocopi = get_node(mocopi_nodepath) as GDMocopi
     if o_mocopi == null: return
