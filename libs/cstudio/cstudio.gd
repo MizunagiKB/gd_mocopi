@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: 2024 MizunagiKB <mizukb@live.jp>
 extends Control
 
 const CAM_ANGLE_MIN: float = -60.0

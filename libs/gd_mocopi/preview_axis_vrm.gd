@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: 2024 MizunagiKB <mizukb@live.jp>
 extends MeshInstance3D
 class_name PreviewAxisVRM
 
