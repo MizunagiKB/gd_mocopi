@@ -1,0 +1,100 @@
+= GDMocopi
+:encoding: utf-8
+:lang: ja
+:author: MizunagiKB <mizukb@live.jp>
+:copyright: 2024 MizunagiKB
+:doctype: book
+:nofooter:
+:toc: left
+:toclevels: 3
+:source-highlighter: highlight.js
+:icons: font
+:experimental:
+:stylesdir: ./res/theme/css
+:stylesheet: mizunagi-works.css
+ifdef::env-github,env-vscode[]
+:adocsuffix: .adoc
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+:adocsuffix: .html
+endif::env-github,env-vscode[]
+
+
+ifdef::env-github,env-vscode[]
+link:README.adoc[Japanese] / English
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+link:index{adocsuffix}[Japanese] / English
+endif::env-github,env-vscode[]
+
+== Description
+== Properties
+
+[cols="3",frame=none,grid=none]
+|===
+>|int <|<<id-property-port,port>> |[default: 12351]
+>|bool <|<<id-property-adjust_scale,auto_listen>> |[default: false]
+>|NodePath <|<<id-property-skel_nodepath,skel_nodepath>> |[default: ""]
+>|bool <|<<id-property-valid,valid>> |[default: ""]
+|===
+
+== Methods
+
+[cols="2",frame=none,grid=none]
+|===
+>|bool <|param_load(param_pathname: String)
+>|bool <|param_save(param_pathname: String)
+>|void <|skel_update()
+>|void <|listen()
+>|void <|stop()
+|===
+
+== Signals
+
+vrm_pose_update(time: float, ary_mocopi_animation: Array[VRMPose])::
+dummy
+
+== Enumerations
+
+[[id-enum-priority]]
+enum E_MOCOPY_BONE::
+* root = 0
+* torso_1 = 1
+* torso_2 = 2
+* torso_3 = 3
+* torso_4 = 4
+* torso_5 = 5
+* torso_6 = 6
+* torso_7 = 7
+* neck_1 = 8
+* neck_2 = 9
+* head = 10
+* l_shoulder = 11
+* l_up_arm = 12
+* l_low_arm = 13
+* l_hand = 14
+* r_shoulder = 15
+* r_up_arm = 16
+* r_low_arm = 17
+* r_hand = 18
+* l_up_leg = 19
+* l_low_leg = 20
+* l_foot = 21
+* l_toes = 22
+* r_up_leg = 23
+* r_low_leg = 24
+* r_foot = 25
+* r_toes = 26
+
+
+== Constants
+
+* MOCOPI_BONE_COUNT = 27
+* PARAM_UPDATE_NONE = 0
+* PARAM_UPDATE_REST = 1
+* PARAM_UPDATE_POSE = 2
+* DEFAULT_MOCOPI_PARAM
+
+
+== Property Descriptions
+== Method Descriptions
