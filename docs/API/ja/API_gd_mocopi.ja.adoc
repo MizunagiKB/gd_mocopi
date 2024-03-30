@@ -52,7 +52,18 @@ endif::env-github,env-vscode[]
 == Signals
 
 vrm_pose_update(time: float, ary_mocopi_animation: Array[VRMPose])::
-dummy
+Skeleton3Dの姿勢計算が終わった後に、計算結果を配列で戻します。
+
+.Example
+[source,gdscript]
+----
+func _on_vrm_pose_update(time: float, ary_mocopi_animation: Array[VRMPose]):
+    print(value)
+
+func _ready():
+    $GDMocopi.vrm_pose_update.connect(_on_vrm_pose_update)
+----
+
 
 == Enumerations
 
