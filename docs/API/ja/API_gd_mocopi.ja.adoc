@@ -33,7 +33,7 @@ endif::env-github,env-vscode[]
 [cols="3",frame=none,grid=none]
 |===
 >|int <|<<id-property-port,port>> |[default: 12351]
->|bool <|<<id-property-adjust_scale,auto_listen>> |[default: false]
+>|bool <|<<id-property-auto_listen,auto_listen>> |[default: false]
 >|NodePath <|<<id-property-skel_nodepath,skel_nodepath>> |[default: ""]
 >|bool <|<<id-property-valid,valid>> |[default: ""]
 |===
@@ -89,12 +89,55 @@ enum E_MOCOPY_BONE::
 
 == Constants
 
-* MOCOPI_BONE_COUNT = 27
-* PARAM_UPDATE_NONE = 0
-* PARAM_UPDATE_REST = 1
-* PARAM_UPDATE_POSE = 2
-* DEFAULT_MOCOPI_PARAM
+* MOCOPI_BONE_COUNT = 27 +
+mocopiが扱うボーン数。
+* PARAM_UPDATE_NONE = 0 +
+姿勢計算をしません。
+* PARAM_UPDATE_REST = 1 +
+RESTの位置（初期値）として計算します。
+* PARAM_UPDATE_POSE = 2 +
+姿勢計算を行います。
+* DEFAULT_MOCOPI_PARAM +
+GDMocopiが内部で使用するパラメータの初期値。
 
 
 == Property Descriptions
+
+[[id-priority-port]]
+int port [default: 12351]::
+mocopiからの通信を待ち受けるポート番号。
+
+[[id-property-auto_listen]]
+bool auto_listen [default: false]::
+Trueにするとアプリ起動時に自動的にmocopiからの通信を待ち受けします。
+
+[[id-property-skel_nodepath]]
+NodePath skel_nodepath [default: ""]::
+mocopiから送られてくる情報を適用する _Skeleton3D_ ノードを指定します。
+
+[[id-property-valid]]
+bool valid [default: ""]::
+Trueの場合、モーション情報の参照が可能（bndt, btdtパケットを受信済み）です。
+
+
 == Method Descriptions
+
+[[id-method-param_load]]
+bool param_load(param_pathname: String)::
+ファイルに書き込まれたパラメータ値を読み込みます。
+
+[[id-method-param_save]]
+bool param_save(param_pathname: String)::
+現在のパラメータ値をファイルに書き出します。
+
+[[id-method-skel_update]]
+void skel_update()::
+_mocopi_ から受け取った情報を使用して、 _skel_nodepath_ が指し示す _Skeleton3D_ を更新します。
+
+[[id-method-listen]]
+void listen()::
+port で指定されたポート番号で mocopi からの通信受付を開始します。
+
+[[id-method-stop]]
+void stop()::
+mocopi からの通信受付を終了します。

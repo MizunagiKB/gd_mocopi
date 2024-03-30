@@ -146,7 +146,7 @@ image:res/images/usage_07_4.png[] +
 _Project Settings_ から _MToon Shader_ と _VRM_ を有効に
 
 
-=== シーンに VRM を追加
+==== シーンに VRM を追加
 
 動かしたい _VRM_ をシーンに追加します。
 
@@ -159,7 +159,7 @@ image:res/images/usage_08.png[]
 image:res/images/usage_09.png[]
 
 
-=== mocopi と VRM との関連付け
+==== mocopi と VRM との関連付け
 
 読み込んだ mocopi の skel_nodepath に VRM の Skeleton3D を割り当てます。
 

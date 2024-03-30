@@ -4,7 +4,7 @@ extends Node
 class_name GDMocopi
 
 
-@export var receive_port: int = 12351
+@export var port: int = 12351
 @export var auto_listen: bool = false
 @export_node_path("Skeleton3D") var skel_nodepath: NodePath
 
@@ -344,7 +344,7 @@ func listen():
     bndt_count = 0
     btdt_count = 0
     self.receiver = UDPServer.new()
-    self.receiver.listen(self.receive_port)
+    self.receiver.listen(self.port)
 
 
 func stop():
