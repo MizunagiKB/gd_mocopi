@@ -30,8 +30,6 @@ func show_panel(show_order: bool):
     var tw = self.create_tween()
     tw.set_trans(Tween.TRANS_SINE)
 
-    var vct: Vector2i = DisplayServer.window_get_size()
-
     if show_order == true:
         tw.tween_property($panel_menu, "position", Vector2(88, 0), 0.5)
     else:
