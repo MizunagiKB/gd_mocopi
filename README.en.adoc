@@ -30,6 +30,8 @@ endif::env-github,env-vscode[]
 
 == About GDMocopi
 
+image::docs/res/images/gd_mocopi_fig1.png[]
+
 This software (hereinafter referred to as GDMocopi) is an unofficial GDExtension for receiving information sent from SONY mocopi.
 
 The software consists of a component that receives communication data sent from mocopi and applies it to any model data, and a sample application that utilizes this.
