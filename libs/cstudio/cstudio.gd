@@ -33,10 +33,12 @@ func _ready():
     $ui/panel_menu.show_panel.connect($ui/panel_param.show_panel)
     $ui/panel_menu.show_panel.connect($ui/panel_anim.show_panel)
 
+    $ui/panel_menu.menu_view_show_model.connect(_on_pane_menu_menu_view_show_model)
+    $ui/panel_menu.menu_view_show_bone_axis.connect(_on_pane_menu_menu_view_show_bone_axis)
+
 
 func _process(_delta):
-    $scene/preview_axis_vrm.visible = $ui/panel_menu/btn_show_bone.button_pressed
-    $"scene/RAYNOS-chan_1_0_2".visible = !$ui/panel_menu/btn_show_bone.button_pressed
+    pass
 
 
 func _input(event):
@@ -91,3 +93,11 @@ func _gui_input(event):
                     $scene/cam_target/cam.position.z + 0.2,
                     CAM_DISTANCE_MIN, CAM_DISTANCE_MAX
                 )
+
+
+func _on_pane_menu_menu_view_show_model(show_order: bool):
+    $"scene/RAYNOS-chan_1_0_2".visible = show_order
+
+
+func _on_pane_menu_menu_view_show_bone_axis(show_order: bool):
+    $scene/preview_axis_vrm.visible = show_order
