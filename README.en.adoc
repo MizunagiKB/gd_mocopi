@@ -1,0 +1,70 @@
+= mocopi Receiver for Godot
+:encoding: utf-8
+:lang: ja
+:author: MizunagiKB <mizukb@live.jp>
+:copyright: 2024 MizunagiKB
+:doctype: book
+:nofooter:
+:toc: left
+:toclevels: 3
+:source-highlighter: highlight.js
+:icons: font
+:experimental:
+:stylesdir: ./docs/res/theme/css
+:stylesheet: mizunagi-works.css
+ifdef::env-github,env-vscode[]
+:adocsuffix: .adoc
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+:adocsuffix: .html
+endif::env-github,env-vscode[]
+
+
+ifdef::env-github,env-vscode[]
+link:README.adoc[Japanese] / English
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+link:README{adocsuffix}[Japanese] / English
+endif::env-github,env-vscode[]
+
+
+== About GDMocopi
+
+This software (hereinafter referred to as GDMocopi) is an unofficial GDExtension for receiving information sent from SONY mocopi.
+
+The software consists of a component that receives communication data sent from mocopi and applies it to any model data, and a sample application that utilizes this.
+
+This GDExtension can be used with Godot Engine 4.1 and above.
+
+
+== How to Use
+
+ifdef::env-github,env-vscode[]
+* link:./docs/USAGE.en{adocsuffix}[]
+endif::env-github,env-vscode[]
+ifndef::env-github,env-vscode[]
+* link:./USAGE.en{adocsuffix}[]
+endif::env-github,env-vscode[]
+
+
+== License
+
+The GDMocopi itself is released under the MIT License. Please be careful when reusing it as it includes items with different licenses.
+
+VRM addon for Godot Engine:: The VRM addon for Godot Engine, V-Sekai/godot-vrm, is used to load VRM files. +
+https://github.com/V-Sekai/godot-vrm/
+
+RAYNOS-chan Avatar:: The RAYNOS-chan-avatar_v1.0.3.zip VRM model is used in the demo application. +
+https://www.sony.net/Products/mocopi-dev/jp/downloads/DownloadInfo.html
+
+Font Awesome:: Font Awesome is used for the icons in the GUI. +
+https://fontawesome.com/
+
+
+== Related Information
+
+* link:https://www.sony.net/Products/mocopi-dev/jp/[Mobile Motion Capture "mocopi" Developer Site]
+* link:https://github.com/seagetch/mcp-receiver[mcp-receiver(GitHub)]
+* link:https://github.com/vrm-c[VRM Consortium(GitHub)]
+* link:https://github.com/V-Sekai/godot-vrm[VRM addon for Godot Engine(GitHub)]
+* link:https://github.com/MizunagiKB/gd_mocopi[MizunagiKB / gd_mocopi (GitHub)]

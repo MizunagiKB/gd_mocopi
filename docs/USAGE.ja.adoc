@@ -21,10 +21,10 @@ endif::env-github,env-vscode[]
 
 
 ifdef::env-github,env-vscode[]
-link:README.adoc[Japanese] / English
+Japanese / link:USAGE.en.adoc[English]
 endif::env-github,env-vscode[]
 ifndef::env-github,env-vscode[]
-link:index{adocsuffix}[Japanese] / English
+Japanese / link:USAGE.en{adocsuffix}[English]
 endif::env-github,env-vscode[]
 
 
@@ -47,8 +47,6 @@ mocopi本体を所有していない場合は、link:https://www.sony.net/Produc
 この説明は _Godot Engine_ の知識をお持ちであることを前提に説明をしています。
 _Godot Engine_ 本体については _Godot Engine_ のlink:https://docs.godotengine.org/ja/4.x/index.html[ドキュメント]を参照してください。
 
-この手順の結果は _example_1.tscn_ と同じ内容となります。
-
 
 ==== プロジェクトの作成
 
@@ -68,9 +66,9 @@ image:res/images/usage_02.png[]
 
 コピーが完了したら、 _3D Sceene_ を選択してシーンを作成し、その下にに以下のノードを追加してください。
 
-- _GDMocopi_
-- _PreviewAxisMocopi_
-- _Camera3D_
+* _GDMocopi_
+* _PreviewAxisMocopi_
+* _Camera3D_
 
 
 ===== GDMocopi
@@ -84,9 +82,10 @@ image:res/images/usage_03.png[]
 
 ===== PreviewAxisMocopi
 
-_PreviewAxisMocopi_ を追加したら、 _Inspector_ の _Mocopi NodePath_ に GDMocopi の場所を設定します。
+_PreviewAxisMocopi_ を追加したら、 _Inspector_ の _Mocopi NodePath_ に _GDMocopi_ の場所を設定します。
 
 image:res/images/usage_04.png[]
+
 image:res/images/usage_04_1.png[]
 
 
@@ -108,6 +107,7 @@ image:res/images/usage_05.png[]
 うまくいけば、画面に _mocopi_ から受け取った骨の情報が描画されるはずです。
 
 image:res/images/usage_06.png[]
+
 image:res/images/usage_06_1.png[]
 
 設定方法がよく解らない場合は、 _example_1.tscn_ を参考にしてみてください。このシーンファイルはここまでの設定を行った状態のものとなっています。
@@ -115,8 +115,8 @@ image:res/images/usage_06_1.png[]
 
 === VRM を動かす
 
+[.lead]
 ここまでの作業で _mocopi_ から姿勢情報を取得できる様になりました。
-
 次は取得した姿勢情報を _VRM_ に適用させてみましょう。
 
 
@@ -131,19 +131,19 @@ _AssetLib_ から _VRM Importer for 3D Avatars and MToon Shader_ をインスト
 有効にしたら、プロジェクトをリロードするか保存してから開き直してください。立ち上げ直すと _VRM_ と _MToon Shader_ が有効になります。
 
 image:res/images/usage_07.png[] +
-_AssetLib_ から _vrm_ で検索
+_AssetLib_ から _vrm_ で検索。
 
 image:res/images/usage_07_1.png[] +
-_VRM Importer for 3D Avatars and MToon Shader_ を Download
+_VRM Importer for 3D Avatars and MToon Shader_ を Download します。
 
 image:res/images/usage_07_2.png[] +
-ダウンロード対象のファイルを選択
+ダウンロード対象のファイルを選択。
 
 image:res/images/usage_07_3.png[] +
-インストール完了
+インストール完了。
 
 image:res/images/usage_07_4.png[] +
-_Project Settings_ から _MToon Shader_ と _VRM_ を有効に
+_Project Settings_ から _MToon Shader_ と _VRM_ を有効にします。
 
 
 ==== シーンに VRM を追加
@@ -152,9 +152,7 @@ _Project Settings_ から _MToon Shader_ と _VRM_ を有効に
 
 特に動かしたいものがない場合は、_Asset_ の追加時に一緒にダウンロードされた _VRM_ や _SONY mocopi_ のウェブサイトからダウンロードできる _RAYNOS_ ちゃんを使用してみてください。
 
-
 image:res/images/usage_08.png[]
-
 
 image:res/images/usage_09.png[]
 
@@ -168,25 +166,27 @@ VRM をシーンに読み込んだだけの状態では、子階層の Skeleton3
 Inspector の skel_nodepath に Skeleton3D を割り当てます。
 
 image:res/images/usage_09.png[] +
-VRを配置
+VRMを配置
 
 image:res/images/usage_09_1.png[] +
-Editable Children にチェックを入れます
+Editable Children にチェックを入れます。
 
 image:res/images/usage_09_2.png[] +
-子要素を選択可能になりました
+子要素を選択可能になりました。
 
 image:res/images/usage_10.png[] +
-_GDMocopi_ を選びます
+_GDMocopi_ を選びます。
 
 image:res/images/usage_10_1.png[] +
-_VRM_ 内の _Skeleton3D_ を選択します
+_VRM_ 内の _Skeleton3D_ を選択します。
 
+image:res/images/usage_11.png[]
 
-image:res/images/usage_11.png[] +
 image:res/images/usage_11_1.png[] +
-SONY mocopi での動きが反映されるようになりました
+SONY mocopi での動きが反映されるようになりました。
 
 
 image:res/images/usage_12.png[] +
-骨情報の表示が邪魔な場合は Off にしてください
+骨情報の表示が邪魔な場合は Off にしてください。
+
+設定方法がよく解らない場合は、 _example_2.tscn_ を参考にしてみてください。このシーンファイルはここまでの設定を行った状態のものとなっています。

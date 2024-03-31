@@ -21,10 +21,10 @@ endif::env-github,env-vscode[]
 
 
 ifdef::env-github,env-vscode[]
-link:README.adoc[Japanese] / English
+Japanese / link:README.en.adoc[English]
 endif::env-github,env-vscode[]
 ifndef::env-github,env-vscode[]
-link:index{adocsuffix}[Japanese] / English
+Japanese / link:README.en.adoc[English]
 endif::env-github,env-vscode[]
 
 
@@ -33,6 +33,8 @@ endif::env-github,env-vscode[]
 image::docs/res/images/gd_mocopi_fig1.png[]
 
 このソフトウェア（以下GDMocopi）は link:https://www.sony.net/Products/mocopi-dev/jp/[SONY mocopi] から送信される情報を Godot Engine で受信するための**非公式**な GDExtension です。
+
+ソフトウェアは mocopi からの送られてくる通信データを受け取り、任意のモデルデータに適用するためのものと、それを応用したサンプルアプリケーションから構成されています。
 
 この GDExtension は Godot Engine 4.1 以上で使用可能です。
 
