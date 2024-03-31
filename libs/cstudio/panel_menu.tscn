@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5uottao3u3gj"]
+[gd_scene load_steps=10 format=3 uid="uid://b5uottao3u3gj"]
 
 [ext_resource type="Texture2D" uid="uid://7yfg0lbyxtps" path="res://libs/cstudio/res/icon/upload-solid.svg" id="1_3h0im"]
 [ext_resource type="Script" path="res://libs/cstudio/panel_menu.gd" id="1_xfplg"]
 [ext_resource type="Texture2D" uid="uid://bhwcy5es83p1e" path="res://libs/cstudio/res/icon/download-solid.svg" id="2_1cpfk"]
 [ext_resource type="Texture2D" uid="uid://cohythgt0fwk" path="res://libs/cstudio/res/icon/window-maximize-solid.svg" id="2_mg0wx"]
 [ext_resource type="Texture2D" uid="uid://kwhxsc7ib6a3" path="res://libs/cstudio/res/icon/wifi-solid.svg" id="3_vmt05"]
+[ext_resource type="Texture2D" uid="uid://cti5iioys1w3e" path="res://libs/cstudio/res/icon/rotate-solid.svg" id="5_61tna"]
 [ext_resource type="Texture2D" uid="uid://dpy20g5ugnyyg" path="res://libs/cstudio/res/icon/bone-solid.svg" id="6_htrdl"]
 [ext_resource type="Texture2D" uid="uid://d1p4cn0chctq7" path="res://libs/cstudio/res/icon/person-solid.svg" id="7_kyvvy"]
 
@@ -19,7 +20,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 theme = SubResource("Theme_vcaxt")
 script = ExtResource("1_xfplg")
-metadata/_edit_vertical_guides_ = [152.0]
+metadata/_edit_vertical_guides_ = [152.0, 216.0]
 
 [node name="FileDialog" type="FileDialog" parent="."]
 initial_position = 2
@@ -38,8 +39,6 @@ offset_right = 72.0
 offset_bottom = 32.0
 tooltip_text = "Show / Hide sidebars"
 focus_mode = 0
-toggle_mode = true
-button_pressed = true
 icon = ExtResource("2_mg0wx")
 icon_alignment = 1
 expand_icon = true
@@ -79,25 +78,45 @@ popup/item_2/text = " Save Param..."
 popup/item_2/icon = ExtResource("2_1cpfk")
 popup/item_2/id = 2
 
-[node name="menu_view" type="MenuButton" parent="panel_menu/menu"]
+[node name="menu_edit" type="MenuButton" parent="panel_menu/menu"]
+visible = false
 layout_mode = 0
 offset_left = 72.0
-offset_right = 136.0
+offset_right = 128.0
 offset_bottom = 32.0
-text = "View"
-item_count = 3
+text = "Edit"
+item_count = 2
 popup/item_0/text = ""
 popup/item_0/id = 0
 popup/item_0/separator = true
-popup/item_1/text = " Show Model"
-popup/item_1/icon = ExtResource("7_kyvvy")
-popup/item_1/checkable = 1
-popup/item_1/checked = true
+popup/item_1/text = ""
 popup/item_1/id = 1
-popup/item_2/text = " Show Bone axis"
-popup/item_2/icon = ExtResource("6_htrdl")
-popup/item_2/checkable = 1
-popup/item_2/id = 2
+
+[node name="menu_view" type="MenuButton" parent="panel_menu/menu"]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 128.0
+offset_bottom = 32.0
+text = "View"
+item_count = 5
+popup/item_0/text = ""
+popup/item_0/id = 0
+popup/item_0/separator = true
+popup/item_1/text = "View reset"
+popup/item_1/icon = ExtResource("5_61tna")
+popup/item_1/id = 1
+popup/item_2/text = ""
+popup/item_2/id = 4
+popup/item_2/separator = true
+popup/item_3/text = " Show Model"
+popup/item_3/icon = ExtResource("7_kyvvy")
+popup/item_3/checkable = 1
+popup/item_3/checked = true
+popup/item_3/id = 2
+popup/item_4/text = " Show Bone axis"
+popup/item_4/icon = ExtResource("6_htrdl")
+popup/item_4/checkable = 1
+popup/item_4/id = 3
 
 [node name="lbl_bndt" type="Label" parent="panel_menu"]
 layout_mode = 1
@@ -194,6 +213,6 @@ value = 12351.0
 alignment = 1
 
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
-[connection signal="toggled" from="panel_control/btn_show_panel" to="." method="_on_btn_show_ui_toggled"]
+[connection signal="pressed" from="panel_control/btn_show_panel" to="." method="_on_btn_show_panel_pressed"]
 [connection signal="toggled" from="panel_menu/btn_listen" to="." method="_on_btn_listen_toggled"]
 [connection signal="value_changed" from="panel_menu/spin_listen_port" to="." method="_on_spin_box_value_changed"]

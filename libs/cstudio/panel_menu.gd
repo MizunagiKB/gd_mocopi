@@ -9,13 +9,33 @@ extends Control
 const ID_MENU_FILE_LOAD_PARAM: int = 1
 const ID_MENU_FILE_SAVE_PARAM: int = 2
 
-const ID_MENU_VIEW_SHOW_MODEL: int = 1
-const ID_MENU_VIEW_SHOW_BONE_AXIS: int = 2
+const ID_MENU_VIEW_CAMERA_RESET: int = 1
+const ID_MENU_VIEW_SHOW_MODEL: int = 2
+const ID_MENU_VIEW_SHOW_BONE_AXIS: int = 3
 
 
-signal show_panel(show_order: bool)
+var show_panel_order: int = 0
+
+signal show_panel_menu(show_order: int)
+signal show_panel_status(show_order: int)
+signal show_panel_param(show_order: int)
+signal show_panel_anim(show_order: int)
+
+signal menu_view_camera_reset()
 signal menu_view_show_model(show_order: bool)
 signal menu_view_show_bone_axis(show_order: bool)
+
+
+func show_panel(show_order: bool):
+    var tw = self.create_tween()
+    tw.set_trans(Tween.TRANS_SINE)
+
+    var vct: Vector2i = DisplayServer.window_get_size()
+
+    if show_order == true:
+        tw.tween_property($panel_menu, "position", Vector2(88, 0), 0.5)
+    else:
+        tw.tween_property($panel_menu, "position", Vector2(88, -32), 0.5)
 
 
 func _ready():
@@ -67,6 +87,9 @@ func _on_popup_view_id_pressed(id: int):
     var index: int = menu.get_item_index(id)
 
     match id:
+        ID_MENU_VIEW_CAMERA_RESET:
+            menu_view_camera_reset.emit()
+
         ID_MENU_VIEW_SHOW_MODEL:
             var show_order: bool = menu.is_item_checked(index)
             menu.set_item_checked(index, !show_order)
@@ -118,8 +141,29 @@ func _on_file_dialog_file_selected(path):
             o_mocopi.param_save(path)
 
 
-func _on_btn_show_ui_toggled(button_pressed):
-    show_panel.emit(button_pressed)
+func _on_btn_show_panel_pressed():
+
+    self.show_panel_order += 1
+
+    if self.show_panel_order > 2:
+        self.show_panel_order = 0
+
+    match self.show_panel_order:
+        0:
+            show_panel_param.emit(true)
+            show_panel_anim.emit(true)
+            show_panel_menu.emit(true)
+            show_panel_status.emit(true)
+
+        1:
+            show_panel_param.emit(false)
+            show_panel_anim.emit(false)
+
+        2:
+            show_panel_param.emit(false)
+            show_panel_anim.emit(false)
+            show_panel_menu.emit(false)
+            show_panel_status.emit(false)
 
 
 func _on_spin_box_value_changed(value):

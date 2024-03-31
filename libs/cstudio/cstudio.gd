@@ -30,11 +30,14 @@ func _ready():
     $ui/panel_anim.anim_selected.connect($ui/panel_status.anim_select)
     $ui/panel_anim.anim_lib_reseted.connect($ui/panel_status.anim_reset)
 
-    $ui/panel_menu.show_panel.connect($ui/panel_param.show_panel)
-    $ui/panel_menu.show_panel.connect($ui/panel_anim.show_panel)
+    $ui/panel_menu.show_panel_menu.connect($ui/panel_menu.show_panel)
+    $ui/panel_menu.show_panel_status.connect($ui/panel_status.show_panel)
+    $ui/panel_menu.show_panel_param.connect($ui/panel_param.show_panel)
+    $ui/panel_menu.show_panel_anim.connect($ui/panel_anim.show_panel)
 
-    $ui/panel_menu.menu_view_show_model.connect(_on_pane_menu_menu_view_show_model)
-    $ui/panel_menu.menu_view_show_bone_axis.connect(_on_pane_menu_menu_view_show_bone_axis)
+    $ui/panel_menu.menu_view_camera_reset.connect(_on_panel_menu_menu_view_camera_reset)
+    $ui/panel_menu.menu_view_show_model.connect(_on_panel_menu_menu_view_show_model)
+    $ui/panel_menu.menu_view_show_bone_axis.connect(_on_panel_menu_menu_view_show_bone_axis)
 
 
 func _process(_delta):
@@ -95,9 +98,20 @@ func _gui_input(event):
                 )
 
 
-func _on_pane_menu_menu_view_show_model(show_order: bool):
+func _on_panel_menu_menu_view_camera_reset():
+    self.vct_camera_rot = Vector3.ZERO
+
+    var basis: Basis = Basis()
+    basis = basis.rotated(Vector3(1, 0, 0), deg_to_rad(self.vct_camera_rot.y))
+    basis = basis.rotated(Vector3(0, 1, 0), deg_to_rad(self.vct_camera_rot.x))
+    $scene/cam_target.basis = basis
+    $scene/cam_target.position = Vector3(0, 1, 0)
+    $scene/cam_target/cam.position = Vector3(0, 0, 4)
+
+
+func _on_panel_menu_menu_view_show_model(show_order: bool):
     $"scene/RAYNOS-chan_1_0_2".visible = show_order
 
 
-func _on_pane_menu_menu_view_show_bone_axis(show_order: bool):
+func _on_panel_menu_menu_view_show_bone_axis(show_order: bool):
     $scene/preview_axis_vrm.visible = show_order

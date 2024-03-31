@@ -45,6 +45,18 @@ func anim_reset():
     $btn_play.disabled = true
 
 
+func show_panel(show_order: bool):
+    var tw = self.create_tween()
+    tw.set_trans(Tween.TRANS_SINE)
+
+    var vct: Vector2i = DisplayServer.window_get_size()
+
+    if show_order == true:
+        tw.tween_property(self, "position", Vector2(0, vct.y - 32), 0.5)
+    else:
+        tw.tween_property(self, "position", Vector2(0, vct.y), 0.5)
+
+
 func _ready():
     self.anim_reset()
 
